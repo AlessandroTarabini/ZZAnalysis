@@ -11,7 +11,7 @@
 git cms-init
 
 #Preliminary electron scale and smearing corrections according to https://twiki.cern.ch/twiki/bin/view/CMS/EgammaPostRecoRecipes#2018_Preliminary_Energy_Correcti
-#We need the ElectronTools package to calculate smear and scale uncertainties so just download the ScaleAndSmearing files manualy 
+#We need the ElectronTools package to calculate smear and scale uncertainties so just download the ScaleAndSmearing files manualy
 git cms-merge-topic cms-egamma:EgammaPostRecoTools
 git cms-merge-topic cms-egamma:PhotonIDValueMapSpeedup1029
 git cms-merge-topic cms-egamma:slava77-btvDictFix_10210
@@ -36,7 +36,7 @@ git cms-merge-topic cms-met:METFixEE2017_949_v2_backport_to_102X
 # git cms-addpkg GeneratorInterface/RivetInterface
 # git cms-addpkg SimDataFormats/HTXS
 # git remote add bonanomi https://github.com/bonanomi/cmssw.git
-# git fetch bonanomi 
+# git fetch bonanomi
 # git checkout bonanomi/hstxs1p2_CMSSW_10_2_X GeneratorInterface/RivetInterface
 # git checkout bonanomi/hstxs1p2_CMSSW_10_2_X SimDataFormats/HTXS
 
@@ -53,12 +53,19 @@ git clone https://github.com/usarica/MelaAnalytics.git
 (cd MelaAnalytics; git checkout -b from-v19 v1.9)
 
 #Common LHE tools
-git clone https://github.com/usarica/CommonLHETools.git
-(cd CommonLHETools; git checkout -b from-v131 v1.3.1)
+#git clone https://github.com/usarica/CommonLHETools.git
+#(cd CommonLHETools; git checkout -b from-v134 v1.3.4)
+#--->Hack for scram update preventing shell scripts in BuildFiles
+git clone https://github.com/namapane/CommonLHETools.git
+(cd CommonLHETools; git checkout v134-fixScram)
 
 #MELA
-git clone https://github.com/cms-analysis/HiggsAnalysis-ZZMatrixElement.git ZZMatrixElement
-(cd ZZMatrixElement; git checkout -b from-v223 v2.2.3)
+#git clone https://github.com/JHUGen/JHUGenMELA.git JHUGenMELA
+#(cd JHUGenMELA; git checkout -b from-v231 v2.3.1)
+#--->Hack for scram update preventing shell scripts in BuildFiles
+git clone https://github.com/namapane/JHUGenMELA.git JHUGenMELA
+(cd JHUGenMELA; git checkout v231-fixScram)
+
 # replace ZZMatrixElement/MELA/setup.sh -j 8
 (                                                                 \
   cd ${CMSSW_BASE}/src/ZZMatrixElement/MELA/COLLIER/             ;\
@@ -83,10 +90,9 @@ git clone https://github.com/cms-analysis/HiggsAnalysis-ZZMatrixElement.git ZZMa
   mv libjhugenmela.so ../data/${SCRAM_ARCH}/                     ;\
 )
 
+#download MCFM lib (cannot be done in BuildFile.xml any longer)
+$CMSSW_BASE/src/JHUGenMELA/MELA/data/retrieve.csh $SCRAM_ARCH mcfm_707
+
 #kinematic refitting
 git clone https://github.com/mhl0116/KinZfitter-1.git KinZfitter
 (cd KinZfitter ; git checkout -b from-27daebb 27daebb)
-
-
-
-
