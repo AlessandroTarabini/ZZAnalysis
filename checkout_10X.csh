@@ -49,7 +49,7 @@ git clone https://github.com/AlessandroTarabini/ZZAnalysis.git ZZAnalysis
 git clone https://github.com/bonanomi/MuonMVAReader.git MuonMVAReader
 
 #MELA Analytics
-git clone https://github.com/usarica/MelaAnalytics.git
+git clone https://github.com/MELALabs/MelaAnalytics.git
 (cd MelaAnalytics; git checkout -b from-v19 v1.9)
 
 #Common LHE tools
@@ -68,7 +68,7 @@ git clone https://github.com/namapane/JHUGenMELA.git JHUGenMELA
 
 # replace ZZMatrixElement/MELA/setup.sh -j 8
 (                                                                 \
-  cd ${CMSSW_BASE}/src/ZZMatrixElement/MELA/COLLIER/             ;\
+  cd ${CMSSW_BASE}/src/JHUGenMELA/MELA/COLLIER/                  ;\
   set pkgname="collier-1.2.0"                                    ;\
   set pkgdir="COLLIER-1.2"                                       ;\
   set tarname=$pkgname".tar.gz"                                  ;\
