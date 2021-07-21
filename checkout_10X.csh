@@ -50,7 +50,7 @@ git clone https://github.com/bonanomi/MuonMVAReader.git MuonMVAReader
 
 #MELA Analytics
 git clone https://github.com/MELALabs/MelaAnalytics.git
-(cd MelaAnalytics; git checkout -b from-v19 v1.9)
+(cd MelaAnalytics; git checkout -b from-v22 v2.2)
 
 #Common LHE tools
 #git clone https://github.com/usarica/CommonLHETools.git
@@ -85,9 +85,13 @@ git clone https://github.com/namapane/JHUGenMELA.git JHUGenMELA
   mv $libname "../data/"$SCRAM_ARCH"/"$libname                   ;\
 )
 (                                                                 \
-  cd ${CMSSW_BASE}/src/ZZMatrixElement/MELA/fortran/             ;\
+  cd ${CMSSW_BASE}/src/JHUGenMELA/MELA/fortran/                  ;\
   make all                                                       ;\
   mv libjhugenmela.so ../data/${SCRAM_ARCH}/                     ;\
+)
+(                                                                 \
+  cd ${CMSSW_BASE}/src/JHUGenMELA/MELA/                          ;\
+  ./downloadNNPDF.sh                                             ;\
 )
 
 #download MCFM lib (cannot be done in BuildFile.xml any longer)
