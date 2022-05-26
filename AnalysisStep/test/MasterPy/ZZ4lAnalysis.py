@@ -902,8 +902,7 @@ CR_BESTCANDBASE = ("userFloat('d0.Z1Presel') && userFloat('d0.worstEleIso') <" +
                    "&& userFloat('d0.worstMuIso') <" + str(MUISOCUT) ) # To be revised
 
 CR_BESTCANDBASE_AA   = ("userFloat('d0.Z1Presel') && userFloat('d0.worstEleIso') <" + str(ELEISOCUT) +
-                        "&& userFloat('d0.worstMuIso') <" + str(MUISOCUT) + "&&" +
-                        Z2SIP) # base for AA CR: # Z1 with tight leptons passing SIP and ISO, mass cuts; SIP on Z2
+                        "&& userFloat('d0.worstMuIso') <" + str(MUISOCUT) ) # base for AA CR: # Z1 with tight leptons passing SIP and ISO, mass cuts
 
 
 CR_BESTZLLss = ""
