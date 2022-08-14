@@ -82,6 +82,7 @@ public :
    vector<float>   *LepTime;
    vector<bool>    *LepisID;
    vector<short>   *LepisLoose;
+   vector<short>   *LepisCrack;
    vector<float>   *LepBDT;
    vector<char>    *LepMissingHit;
    vector<float>   *LepCombRelIsoPF;
@@ -525,6 +526,7 @@ public :
    TBranch        *b_LepTime;   //!
    TBranch        *b_LepisID;   //!
    TBranch        *b_LepisLoose;   //!
+   TBranch        *b_LepisCrack;   //!
    TBranch        *b_LepBDT;   //!
    TBranch        *b_LepMissingHit;   //!
    TBranch        *b_LepCombRelIsoPF;   //!
@@ -924,7 +926,7 @@ public :
 #endif
 
 #ifdef Tree_cxx
-Tree::Tree(TTree *tree) : fChain(0) 
+Tree::Tree(TTree *tree) : fChain(0)
 {
 }
 
@@ -974,6 +976,7 @@ void Tree::Init(TTree *tree, TString input_file_name, bool notZLregion)
    LepTime = 0;
    LepisID = 0;
    LepisLoose = 0;
+   LepisCrack = 0;
    LepBDT = 0;
    LepMissingHit = 0;
    LepCombRelIsoPF = 0;
@@ -1063,6 +1066,7 @@ void Tree::Init(TTree *tree, TString input_file_name, bool notZLregion)
    fChain->SetBranchAddress("LepTime", &LepTime, &b_LepTime);
    fChain->SetBranchAddress("LepisID", &LepisID, &b_LepisID);
    fChain->SetBranchAddress("LepisLoose", &LepisLoose, &b_LepisLoose);
+   fChain->SetBranchAddress("LepisCrack", &LepisCrack, &b_LepisCrack);
    fChain->SetBranchAddress("LepBDT", &LepBDT, &b_LepBDT);
    fChain->SetBranchAddress("LepMissingHit", &LepMissingHit, &b_LepMissingHit);
    fChain->SetBranchAddress("LepCombRelIsoPF", &LepCombRelIsoPF, &b_LepCombRelIsoPF);
@@ -1393,7 +1397,7 @@ void Tree::Init(TTree *tree, TString input_file_name, bool notZLregion)
          fChain->SetBranchAddress("KFactor_QCD_ggZZ_PDFReplicaDn", &KFactor_QCD_ggZZ_PDFReplicaDn, &b_KFactor_QCD_ggZZ_PDFReplicaDn);
          fChain->SetBranchAddress("KFactor_QCD_ggZZ_PDFReplicaUp", &KFactor_QCD_ggZZ_PDFReplicaUp, &b_KFactor_QCD_ggZZ_PDFReplicaUp);
       }
-      
+
       if ( input_file_name.Contains("ZZTo4l") )
       {
          fChain->SetBranchAddress("KFactor_EW_qqZZ", &KFactor_EW_qqZZ, &b_KFactor_EW_qqZZ);
@@ -1402,7 +1406,7 @@ void Tree::Init(TTree *tree, TString input_file_name, bool notZLregion)
          fChain->SetBranchAddress("KFactor_QCD_qqZZ_M", &KFactor_QCD_qqZZ_M, &b_KFactor_QCD_qqZZ_M);
          fChain->SetBranchAddress("KFactor_QCD_qqZZ_Pt", &KFactor_QCD_qqZZ_Pt, &b_KFactor_QCD_qqZZ_Pt);
       }
-      
+
       fChain->SetBranchAddress("genFinalState", &genFinalState, &b_genFinalState);
       fChain->SetBranchAddress("genProcessId", &genProcessId, &b_genProcessId);
       fChain->SetBranchAddress("genHEPMCweight", &genHEPMCweight, &b_genHEPMCweight);
@@ -1461,7 +1465,7 @@ void Tree::Init(TTree *tree, TString input_file_name, bool notZLregion)
       fChain->SetBranchAddress("LHEweight_QCDscale_muR0p5_muF2", &LHEweight_QCDscale_muR0p5_muF2, &b_LHEweight_QCDscale_muR0p5_muF2);
       fChain->SetBranchAddress("LHEweight_QCDscale_muR0p5_muF0p5", &LHEweight_QCDscale_muR0p5_muF0p5, &b_LHEweight_QCDscale_muR0p5_muF0p5);
    }
-   
+
    Notify();
 }
 

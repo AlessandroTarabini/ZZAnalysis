@@ -18,6 +18,13 @@ using namespace std;
 float bins_hpt4[]={0,60,120,200};
 TH1F *hpt_bin=new TH1F("hpt_bin","",3, bins_hpt4);
 
+extern "C" int noCategories( )
+{
+  // if(VERBOSE) cout << "WARNING: using deprecated categorization function 'noCategories'" << endl;
+  return noCat;
+}
+
+
 extern "C" int categoryLegacy( int nCleanedJetsPt30 )
 {
   if(VERBOSE) cout << "WARNING: using deprecated categorization function 'categoryLegacy'" << endl;
@@ -49,7 +56,7 @@ extern "C" int categoryMor16(
 extern "C" int categoryIchep16(
 			       int nExtraLep,
 			       int nExtraZ,
-			       int nCleanedJetsPt30, 
+			       int nCleanedJetsPt30,
 			       int nCleanedJetsPt30BTagged_bTagSF,
 			       float* jetQGLikelihood,
 			       float p_JJQCD_SIG_ghg2_1_JHUGen_JECNominal,
@@ -65,7 +72,7 @@ extern "C" int categoryIchep16(
 					 float p_HadZH_mavjj_true_JECNominal,
 			       float* jetPhi,
 			       float ZZMass,
-			       bool useQGTagging 
+			       bool useQGTagging
 			       )
 {
   if(VERBOSE) cout << "WARNING: using deprecated categorization function 'categoryIchep16'" << endl;
@@ -132,7 +139,7 @@ extern "C" int categoryIchep16(
 extern "C" int categoryMor17(
 			     int nExtraLep,
 			     int nExtraZ,
-			     int nCleanedJetsPt30, 
+			     int nCleanedJetsPt30,
 			     int nCleanedJetsPt30BTagged_bTagSF,
 			     float* jetQGLikelihood,
 			     float p_JJQCD_SIG_ghg2_1_JHUGen_JECNominal,
@@ -198,7 +205,7 @@ extern "C" int categoryMor17(
 	   || nExtraLep>=1 ){
 
     return ttHTaggedMor17;
-  
+
   }else if( useVHMETTagged && nExtraLep==0 && (nCleanedJetsPt30==0||nCleanedJetsPt30==1) && PFMET>100 ){
 
     return VHMETTaggedMor17;
@@ -285,11 +292,11 @@ extern "C" int categoryMor18(
   }else if( nCleanedJetsPt30>=4 && nCleanedJetsPt30BTagged_bTagSF>=1 && nExtraLep ==0){
 
     return ttHHadrTaggedMor18;
-  
+
   }else if( nExtraLep>=1 ){
-  
+
   	return ttHLeptTaggedMor18;
-	
+
   }else if( useVHMETTagged && nExtraLep==0 && (nCleanedJetsPt30==0||nCleanedJetsPt30==1) && PFMET>100 ){
 
     return VHMETTaggedMor18;
@@ -315,8 +322,8 @@ extern "C" int stage1_reco_1p1(
                            )
 {
 	int vbfTopo=0;
-	if (Njets<2) vbfTopo=0; 
-	vbfTopo = mjj > 350.0; 
+	if (Njets<2) vbfTopo=0;
+	vbfTopo = mjj > 350.0;
 	if(categoryMor18 == 5 ){ return ttH_Lep;}
 	else if(categoryMor18 == 6 ){ return ttH_Had;}
 	else if(categoryMor18==3){
@@ -340,7 +347,7 @@ extern "C" int stage1_reco_1p1(
       }
 		else {return VBF_2j;}
 	}
-   
+
 	else if (categoryMor18 == 4)
    {
 		if ( 60 < mjj && mjj < 120){return VH_Had;}
@@ -362,7 +369,7 @@ extern "C" int stage1_reco_1p1(
 				else if (binpt == 2){return ggH_1J_PTH_60_120; }
 				else if (binpt == 3){return ggH_1J_PTH_120_200; }
 
-			} 
+			}
 			else if ( Njets>=2) {
 				if(vbfTopo) {return ggH_VBF;}
             int binpt = hpt_bin->FindBin(H_pt);

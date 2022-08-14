@@ -2,8 +2,16 @@
 #define CATEGORY_H
 
 
+//---------- No categorization
 
-//---------- RunI categorization 
+enum noCategories {
+  noCat = 0
+};
+
+extern "C" int noCategories( );
+
+
+//---------- RunI categorization
 
 enum CategoryLegacy {
   ZeroOneJet = 0,
@@ -14,7 +22,7 @@ extern "C" int categoryLegacy( int nCleanedJetsPt30 );
 
 
 
-//---------- Moriond 2016 categorization 
+//---------- Moriond 2016 categorization
 
 enum CategoryMor16 {
   UntaggedMor16  = 0,
@@ -34,16 +42,16 @@ extern "C" int categoryMor16(
 enum CategoryIchep16 {
   UntaggedIchep16     = 0,
   VBF1jTaggedIchep16  = 1,
-  VBF2jTaggedIchep16  = 2, 
-  VHLeptTaggedIchep16 = 3, 
-  VHHadrTaggedIchep16 = 4, 
+  VBF2jTaggedIchep16  = 2,
+  VHLeptTaggedIchep16 = 3,
+  VHHadrTaggedIchep16 = 4,
   ttHTaggedIchep16    = 5
 };
 
 extern "C" int categoryIchep16(
 			       int nExtraLep,
 			       int nExtraZ,
-			       int nCleanedJetsPt30, 
+			       int nCleanedJetsPt30,
 			       int nCleanedJetsPt30BTagged_bTagSF,
 			       float* jetQGLikelihood,
 			       float p_JJQCD_SIG_ghg2_1_JHUGen_JECNominal,
@@ -69,8 +77,8 @@ extern "C" int categoryIchep16(
 enum CategoryMor17 {
   UntaggedMor17     = 0,
   VBF1jTaggedMor17  = 1,
-  VBF2jTaggedMor17  = 2, 
-  VHLeptTaggedMor17 = 3, 
+  VBF2jTaggedMor17  = 2,
+  VHLeptTaggedMor17 = 3,
   VHHadrTaggedMor17 = 4,
   ttHTaggedMor17    = 5,
   VHMETTaggedMor17  = 6
@@ -79,7 +87,7 @@ enum CategoryMor17 {
 extern "C" int categoryMor17(
 			     int nExtraLep,
 			     int nExtraZ,
-			     int nCleanedJetsPt30, 
+			     int nCleanedJetsPt30,
 			     int nCleanedJetsPt30BTagged_bTagSF,
 			     float* jetQGLikelihood,
 			     float p_JJQCD_SIG_ghg2_1_JHUGen_JECNominal,

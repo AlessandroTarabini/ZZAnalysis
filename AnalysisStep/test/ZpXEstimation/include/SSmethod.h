@@ -37,6 +37,7 @@
 #include <ZZAnalysis/AnalysisStep/test/ZpXEstimation/include/FakeRates.h>
 #include <ZZAnalysis/AnalysisStep/interface/bitops.h>
 #include <ZZAnalysis/AnalysisStep/test/ZpXEstimation/include/CMS_lumi.h>
+#include <ZZAnalysis/AnalysisStep/interface/LeptonSFHelper.h>
 
 using namespace std;
 
@@ -54,10 +55,10 @@ class SSmethod: public Tree
 {
 
 public:
-	
+
 	SSmethod();
 	~SSmethod();
-   
+
    void FillFRHistos( TString );
    void FillDataMCPlots( TString );
    void MakeHistogramsZX( TString, TString );
@@ -74,9 +75,10 @@ public:
    void Calculate_SSOS_Ratio( TString, TString, bool );
    void Set_pT_binning( int, float* );
    void SetLumi( float );
-   
+	 void SetYear( float );
+
 private:
-   
+
    void DeclareFRHistos();
    void DeclareDataMCHistos();
    void DeclareZXHistos();
@@ -88,6 +90,7 @@ private:
    int find_current_process( TString );
    int FindFinalState();
    float calculate_K_factor( TString );
+	 float calculate_corr_factor_muSF( );
    bool GetVarLogX( TString );
    bool GetVarLogY( TString );
    void SavePlots( TCanvas*, TString );
@@ -98,7 +101,9 @@ private:
 	void Correct_Final_FR( TString );
 	int Find_Ele_pT_bin( Float_t );
 	int Find_Ele_eta_bin( Float_t );
-	
+
+	LeptonSFHelper *lepSFHelper = new LeptonSFHelper(false);
+
    TLegend* CreateLegend_FR( string , TGraphErrors*, TGraphErrors*,TGraphErrors*,TGraphErrors* );
    TLegend* CreateLegend_ZXcontr( string , TH1F*, TH1F*,TH1F*,TH1F*,TH1F* );
    TLegend* CreateLegend_ZLL( string , TH1F*, TH1F*,TH1F*,TH1F*,TH1F* );
@@ -108,53 +113,53 @@ private:
    TTree *input_tree, *input_tree_data, *input_tree_MC;
 
    TH1F *hCounters;
-   
+
    Long64_t n_gen_events;
-   
+
    vector<string> _s_process, _s_flavour, _s_final_state, _s_category, _s_category_stxs, _s_region;
    vector<float> _fs_ROS_SS;
    vector< vector <float> > _expected_yield_SR,_expected_yield_SR_up,_expected_yield_SR_dn, _number_of_events_CR;
-   
+
    TString _histo_name, _histo_labels;
-   
+
    float jetPt[99];
    float jetEta[99];
    float jetPhi[99];
    float jetMass[99];
    float jetQGL[99];
    float jetPgOverPq[99];
-   
+
    float _pT_bins[99];
-   
+
    float _N_SS_events[num_of_final_states][num_of_categories_stxs];
    float _N_OS_events[num_of_final_states][num_of_categories_stxs];
-   
+
    int _current_process, _current_final_state, _current_category, _current_category_stxs, _n_pT_bins, _current_pT_bin, _current_eta_bin;
-   float _lumi, _yield_SR, _yield_SR_up, _yield_SR_dn , _k_factor;
+   float _lumi, _yield_SR, _yield_SR_up, _yield_SR_dn , _k_factor, _year, _corr_factor;
    double gen_sum_weights, _event_weight, _f3, _f4;
 
    TH1F *histos_1D[num_of_regions_ss][num_of_processes][num_of_final_states][num_of_categories_stxs];
-   
+
    TH1F *histos_ZX[num_of_regions_ss][num_of_processes][num_of_final_states][num_of_categories_stxs];
-   
+
    TH2F *passing[num_of_processes][num_of_flavours], *failing[num_of_processes][num_of_flavours];
-   
+
    TGraphErrors *FR_SS_electron_EB, *FR_SS_electron_EE, *FR_SS_muon_EB, *FR_SS_muon_EE;
    TGraphErrors *FR_SS_electron_EB_unc, *FR_SS_electron_EE_unc, *FR_SS_muon_EB_unc, *FR_SS_muon_EE_unc;
    TMultiGraph *mg_electrons, *mg_muons;
-   
+
    vector<Float_t> vector_X[num_of_fake_rates][num_of_eta_bins][num_of_flavours];
    vector<Float_t> vector_Y[num_of_fake_rates][num_of_eta_bins][num_of_flavours];
    vector<Float_t> vector_EX[num_of_fake_rates][num_of_eta_bins][num_of_flavours];
    vector<Float_t> vector_EY[num_of_fake_rates][num_of_eta_bins][num_of_flavours];
-	
+
 	float _N_Passing[num_of_z_mass_windows][num_of_eta_bins][99];
 	float _N_Failling[num_of_z_mass_windows][num_of_eta_bins][99];
 	float _N_MissingHits[num_of_z_mass_windows][num_of_eta_bins][99];
-	
+
 	TF1 *Ele_FR_correction_function[num_of_eta_bins][99];
 
-	
-   
+
+
 };
 #endif

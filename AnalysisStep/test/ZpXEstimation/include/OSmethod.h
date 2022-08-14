@@ -35,6 +35,7 @@
 #include <ZZAnalysis/AnalysisStep/test/ZpXEstimation/include/FakeRates.h>
 #include <ZZAnalysis/AnalysisStep/interface/bitops.h>
 #include <ZZAnalysis/AnalysisStep/test/ZpXEstimation/include/CMS_lumi.h>
+#include <ZZAnalysis/AnalysisStep/interface/LeptonSFHelper.h>
 
 using namespace std;
 
@@ -52,10 +53,10 @@ class OSmethod: public Tree
 {
 
 public:
-	
+
 	OSmethod();
 	~OSmethod();
-   
+
    void FillFRHistos( TString );
    void FillDataMCPlots( TString );
    void MakeHistogramsZX( TString, TString );
@@ -75,9 +76,10 @@ public:
    void ProduceFakeRates( TString );
    void Set_pT_binning( int, float* );
    void SetLumi( float );
-   
+	 void SetYear( float );
+
 private:
-   
+
    void DeclareFRHistos();
    void DeclareDataMCHistos();
    void DeclareZXHistos();
@@ -89,6 +91,7 @@ private:
    int find_current_process( TString );
    int FindFinalState();
    float calculate_K_factor( TString );
+	 float calculate_corr_factor_muSF( );
    bool GetVarLogX( TString );
    bool GetVarLogY( TString );
    void SavePlots( TCanvas*, TString );
@@ -98,50 +101,52 @@ private:
    TLegend* CreateLegend_2P2F( string , TH1F*, TH1F*,TH1F*,TH1F*,TH1F* );
    TLegend* CreateLegend_3P1F( string , TH1F*, TH1F*,TH1F*,TH1F*,TH1F* ,TH1F*);
 
+	 LeptonSFHelper *lepSFHelper = new LeptonSFHelper(false);
+
    TFile *input_file, *input_file_data;
    TFile *fOutHistos;
    TTree *input_tree, *input_tree_data;
 
    TH1F *hCounters;
-   
+
    Long64_t n_gen_events;
-   
+
    vector<string> _s_process, _s_flavour, _s_final_state, _s_category, _s_category_stxs, _s_region, _s_variation;
    TString _histo_name, _histo_labels;
-   
+
    float jetPt[99];
    float jetEta[99];
    float jetPhi[99];
    float jetMass[99];
    float jetQGL[99];
    float jetPgOverPq[99];
-   
+
    float _pT_bins[99];
-   
+
    int _current_process, _current_final_state, _current_category, _current_category_stxs, _n_pT_bins;
-   float _lumi, _yield_SR, _k_factor;
+   float _lumi, _yield_SR, _k_factor, _year, _corr_factor;
    double gen_sum_weights, _event_weight, _f3, _f4, _f3_Up, _f3_Dn, _f4_Up, _f4_Dn;
    vector< vector <float> > _expected_yield_SR, _number_of_events_CR;
 
    TH1F *histos_1D[num_of_regions_os][num_of_processes][num_of_final_states][num_of_categories_stxs];
-   
+
    TH1F *histos_ZX[num_of_fr_variations][num_of_final_states][num_of_categories_stxs];
    TH1F *h_from2P2F_SR[num_of_fr_variations][num_of_final_states][num_of_categories_stxs];
    TH1F *h_from2P2F_3P1F[num_of_fr_variations][num_of_final_states][num_of_categories_stxs];
    TH1F *h_from3P1F_SR_final[num_of_fr_variations][num_of_final_states][num_of_categories_stxs];
    TH1F *h_from3P1F_SR[num_of_fr_variations][num_of_final_states][num_of_categories_stxs];
    TH1F *h_from3P1F_SR_ZZonly[num_of_fr_variations][num_of_final_states][num_of_categories_stxs];
-   
+
    TH2F *passing[num_of_processes][num_of_flavours], *failing[num_of_processes][num_of_flavours];
-   
+
    TGraphErrors *FR_OS_electron_EB, *FR_OS_electron_EE, *FR_OS_muon_EB, *FR_OS_muon_EE;
    TGraphErrors *FR_OS_electron_EB_unc, *FR_OS_electron_EE_unc, *FR_OS_muon_EB_unc, *FR_OS_muon_EE_unc;
    TMultiGraph *mg_electrons, *mg_muons;
-   
+
    vector<Float_t> vector_X[num_of_fake_rates][num_of_eta_bins][num_of_flavours];
    vector<Float_t> vector_Y[num_of_fake_rates][num_of_eta_bins][num_of_flavours];
    vector<Float_t> vector_EX[num_of_fake_rates][num_of_eta_bins][num_of_flavours];
    vector<Float_t> vector_EY[num_of_fake_rates][num_of_eta_bins][num_of_flavours];
-   
+
 };
 #endif
