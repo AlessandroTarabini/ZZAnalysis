@@ -424,7 +424,7 @@ process.selectedSlimmedElectrons = cms.EDFilter("PATElectronSelector",
     cut = cms.string("pt>5 && abs(eta)<2.5")
 )
 
-#--- Photon ID modules seem to be OK also for UL cf: 
+#--- Photon ID modules seem to be OK also for UL cf:
 #--- https://github.com/cms-egamma/EgammaPostRecoTools/blob/master/python/EgammaPostRecoTools.py#L63
 
 if (LEPTON_SETUP == 2016):
@@ -948,12 +948,11 @@ CR_Z2MASS = "daughter(1).mass>4  && daughter(1).mass<120"                       
 
 
 # Define cuts for selection of the candidates among which the best one is chosen.
-CR_BESTCANDBASE = ("userFloat('d0.Z1Presel') && userFloat('d0.worstEleIso') <" + str(ELEISOCUT) +
+STCANDBASE = ("userFloat('d0.Z1Presel') && userFloat('d0.worstEleIso') <" + str(ELEISOCUT) +
                    "&& userFloat('d0.worstMuIso') <" + str(MUISOCUT) ) # To be revised
 
 CR_BESTCANDBASE_AA   = ("userFloat('d0.Z1Presel') && userFloat('d0.worstEleIso') <" + str(ELEISOCUT) +
-                        "&& userFloat('d0.worstMuIso') <" + str(MUISOCUT) + "&&" +
-                        Z2SIP) # base for AA CR: # Z1 with tight leptons passing SIP and ISO, mass cuts; SIP on Z2
+                        "&& userFloat('d0.worstMuIso') <" + str(MUISOCUT)) # base for AA CR: # Z1 with tight leptons passing SIP and ISO, mass cuts
 
 
 CR_BESTZLLss = ""
@@ -1110,7 +1109,7 @@ if (SAMPLE_TYPE == 2016):
         applyJec=True,
         vertexes=cms.InputTag("offlineSlimmedPrimaryVertices"),
         algos=cms.VPSet(_chsalgos_106X_UL16)
-    )    
+    )
 elif (SAMPLE_TYPE == 2017):
     process.load("RecoJets.JetProducers.PileupJetID_cfi")
     process.pileupJetIdUpdated = process.pileupJetId.clone(
