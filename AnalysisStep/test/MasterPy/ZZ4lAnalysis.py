@@ -948,7 +948,7 @@ CR_Z2MASS = "daughter(1).mass>4  && daughter(1).mass<120"                       
 
 
 # Define cuts for selection of the candidates among which the best one is chosen.
-STCANDBASE = ("userFloat('d0.Z1Presel') && userFloat('d0.worstEleIso') <" + str(ELEISOCUT) +
+CR_BESTCANDBASE = ("userFloat('d0.Z1Presel') && userFloat('d0.worstEleIso') <" + str(ELEISOCUT) +
                    "&& userFloat('d0.worstMuIso') <" + str(MUISOCUT) ) # To be revised
 
 CR_BESTCANDBASE_AA   = ("userFloat('d0.Z1Presel') && userFloat('d0.worstEleIso') <" + str(ELEISOCUT) +

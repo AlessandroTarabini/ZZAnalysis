@@ -2884,97 +2884,97 @@ void HZZ4lNtupleMaker::BookAllBranches(){
   myTree->Book("NObsInt",NObsInt, failedTreeLevel >= fullFailedTree);
   myTree->Book("NTrueInt",NTrueInt, failedTreeLevel >= fullFailedTree);
 
-  myTree->Book("GenMET", GenMET, failedTreeLevel >= minimalFailedTree);
-  myTree->Book("GenMETPhi", GenMETPhi, failedTreeLevel >= minimalFailedTree);
-  myTree->Book("PFMET", metobj.extras.met, failedTreeLevel >= fullFailedTree);
-  myTree->Book("PFMET_jesUp", metobj.extras.met_JECup, failedTreeLevel >= fullFailedTree);
-  myTree->Book("PFMET_jesDn", metobj.extras.met_JECdn, failedTreeLevel >= fullFailedTree);
-  myTree->Book("PFMETPhi", metobj.extras.phi, failedTreeLevel >= fullFailedTree);
-  myTree->Book("PFMETPhi_jesUp", metobj.extras.phi_JECup, failedTreeLevel >= fullFailedTree);
-  myTree->Book("PFMETPhi_jesDn", metobj.extras.phi_JECdn, failedTreeLevel >= fullFailedTree);
-  myTree->Book("PFMET_corrected", metobj_corrected.extras.met, failedTreeLevel >= fullFailedTree);
-  myTree->Book("PFMET_corrected_jesUp", metobj_corrected.extras.met_JECup, failedTreeLevel >= fullFailedTree);
-  myTree->Book("PFMET_corrected_jesDn", metobj_corrected.extras.met_JECdn, failedTreeLevel >= fullFailedTree);
-  myTree->Book("PFMET_corrected_jerUp", metobj_corrected.extras.met_JERup, failedTreeLevel >= fullFailedTree);
-  myTree->Book("PFMET_corrected_jerDn", metobj_corrected.extras.met_JERdn, failedTreeLevel >= fullFailedTree);
-  myTree->Book("PFMET_corrected_puUp", metobj_corrected.extras.met_PUup, failedTreeLevel >= fullFailedTree);
-  myTree->Book("PFMET_corrected_puDn", metobj_corrected.extras.met_PUdn, failedTreeLevel >= fullFailedTree);
-  myTree->Book("PFMET_corrected_metUp", metobj_corrected.extras.met_METup, failedTreeLevel >= fullFailedTree);
-  myTree->Book("PFMET_corrected_metDn", metobj_corrected.extras.met_METdn, failedTreeLevel >= fullFailedTree);
-  myTree->Book("PFMETPhi_corrected", metobj_corrected.extras.phi, failedTreeLevel >= fullFailedTree);
-  myTree->Book("PFMETPhi_corrected_jesUp", metobj_corrected.extras.phi_JECup, failedTreeLevel >= fullFailedTree);
-  myTree->Book("PFMETPhi_corrected_jesDn", metobj_corrected.extras.phi_JECdn, failedTreeLevel >= fullFailedTree);
-  myTree->Book("PFMETPhi_corrected_jerUp", metobj_corrected.extras.phi_JERup, failedTreeLevel >= fullFailedTree);
-  myTree->Book("PFMETPhi_corrected_jerDn", metobj_corrected.extras.phi_JERdn, failedTreeLevel >= fullFailedTree);
-  myTree->Book("PFMETPhi_corrected_puUp", metobj_corrected.extras.phi_PUup, failedTreeLevel >= fullFailedTree);
-  myTree->Book("PFMETPhi_corrected_puDn", metobj_corrected.extras.phi_PUdn, failedTreeLevel >= fullFailedTree);
-  myTree->Book("PFMETPhi_corrected_metUp", metobj_corrected.extras.phi_METup, failedTreeLevel >= fullFailedTree);
-  myTree->Book("PFMETPhi_corrected_metDn", metobj_corrected.extras.phi_METdn, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("GenMET", GenMET, failedTreeLevel >= minimalFailedTree);
+  // myTree->Book("GenMETPhi", GenMETPhi, failedTreeLevel >= minimalFailedTree);
+  // myTree->Book("PFMET", metobj.extras.met, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("PFMET_jesUp", metobj.extras.met_JECup, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("PFMET_jesDn", metobj.extras.met_JECdn, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("PFMETPhi", metobj.extras.phi, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("PFMETPhi_jesUp", metobj.extras.phi_JECup, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("PFMETPhi_jesDn", metobj.extras.phi_JECdn, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("PFMET_corrected", metobj_corrected.extras.met, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("PFMET_corrected_jesUp", metobj_corrected.extras.met_JECup, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("PFMET_corrected_jesDn", metobj_corrected.extras.met_JECdn, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("PFMET_corrected_jerUp", metobj_corrected.extras.met_JERup, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("PFMET_corrected_jerDn", metobj_corrected.extras.met_JERdn, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("PFMET_corrected_puUp", metobj_corrected.extras.met_PUup, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("PFMET_corrected_puDn", metobj_corrected.extras.met_PUdn, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("PFMET_corrected_metUp", metobj_corrected.extras.met_METup, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("PFMET_corrected_metDn", metobj_corrected.extras.met_METdn, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("PFMETPhi_corrected", metobj_corrected.extras.phi, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("PFMETPhi_corrected_jesUp", metobj_corrected.extras.phi_JECup, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("PFMETPhi_corrected_jesDn", metobj_corrected.extras.phi_JECdn, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("PFMETPhi_corrected_jerUp", metobj_corrected.extras.phi_JERup, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("PFMETPhi_corrected_jerDn", metobj_corrected.extras.phi_JERdn, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("PFMETPhi_corrected_puUp", metobj_corrected.extras.phi_PUup, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("PFMETPhi_corrected_puDn", metobj_corrected.extras.phi_PUdn, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("PFMETPhi_corrected_metUp", metobj_corrected.extras.phi_METup, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("PFMETPhi_corrected_metDn", metobj_corrected.extras.phi_METdn, failedTreeLevel >= fullFailedTree);
   //myTree->Book("PFMETNoHF",PFMETNoHF, failedTreeLevel >= fullFailedTree);
   //myTree->Book("PFMETNoHFPhi",PFMETNoHFPhi, failedTreeLevel >= fullFailedTree);
 
-  myTree->Book("nCleanedJets",nCleanedJets, failedTreeLevel >= minimalFailedTree);
-  myTree->Book("nCleanedJetsPt30",nCleanedJetsPt30, failedTreeLevel >= minimalFailedTree);
-  myTree->Book("nCleanedJetsPt30_jesUp",nCleanedJetsPt30_jesUp, failedTreeLevel >= minimalFailedTree);
-  myTree->Book("nCleanedJetsPt30_jesUp_Total",nCleanedJetsPt30_jesUp_Total, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30_jesUp_Abs",nCleanedJetsPt30_jesUp_Abs, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30_jesUp_Abs_year",nCleanedJetsPt30_jesUp_Abs_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30_jesUp_BBEC1",nCleanedJetsPt30_jesUp_BBEC1, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30_jesUp_BBEC1_year",nCleanedJetsPt30_jesUp_BBEC1_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30_jesUp_EC2",nCleanedJetsPt30_jesUp_EC2, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30_jesUp_EC2_year",nCleanedJetsPt30_jesUp_EC2_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30_jesUp_FlavQCD",nCleanedJetsPt30_jesUp_FlavQCD, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30_jesUp_HF",nCleanedJetsPt30_jesUp_HF, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30_jesUp_HF_year",nCleanedJetsPt30_jesUp_HF_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30_jesUp_RelBal",nCleanedJetsPt30_jesUp_RelBal, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30_jesUp_RelSample_year",nCleanedJetsPt30_jesUp_RelSample_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30_jesDn",nCleanedJetsPt30_jesDn, failedTreeLevel >= minimalFailedTree);
-  myTree->Book("nCleanedJetsPt30_jesDn_Total",nCleanedJetsPt30_jesDn_Total, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30_jesDn_Abs",nCleanedJetsPt30_jesDn_Abs, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30_jesDn_Abs_year",nCleanedJetsPt30_jesDn_Abs_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30_jesDn_BBEC1",nCleanedJetsPt30_jesDn_BBEC1, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30_jesDn_BBEC1_year",nCleanedJetsPt30_jesDn_BBEC1_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30_jesDn_EC2",nCleanedJetsPt30_jesDn_EC2, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30_jesDn_EC2_year",nCleanedJetsPt30_jesDn_EC2_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30_jesDn_FlavQCD",nCleanedJetsPt30_jesDn_FlavQCD, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30_jesDn_HF",nCleanedJetsPt30_jesDn_HF, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30_jesDn_HF_year",nCleanedJetsPt30_jesDn_HF_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30_jesDn_RelBal",nCleanedJetsPt30_jesDn_RelBal, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30_jesDn_RelSample_year",nCleanedJetsPt30_jesDn_RelSample_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30_jerUp",nCleanedJetsPt30_jerUp, failedTreeLevel >= minimalFailedTree);
-  myTree->Book("nCleanedJetsPt30_jerDn",nCleanedJetsPt30_jerDn, failedTreeLevel >= minimalFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged",nCleanedJetsPt30BTagged, failedTreeLevel >= minimalFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF",nCleanedJetsPt30BTagged_bTagSF, failedTreeLevel >= minimalFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesUp",nCleanedJetsPt30BTagged_bTagSF_jesUp, failedTreeLevel >= minimalFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesUp_Total",nCleanedJetsPt30BTagged_bTagSF_jesUp_Total, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesUp_Abs",nCleanedJetsPt30BTagged_bTagSF_jesUp_Abs, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesUp_Abs_year",nCleanedJetsPt30BTagged_bTagSF_jesUp_Abs_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesUp_BBEC1",nCleanedJetsPt30BTagged_bTagSF_jesUp_BBEC1, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesUp_BBEC1_year",nCleanedJetsPt30BTagged_bTagSF_jesUp_BBEC1_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesUp_EC2",nCleanedJetsPt30BTagged_bTagSF_jesUp_EC2, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesUp_EC2_year",nCleanedJetsPt30BTagged_bTagSF_jesUp_EC2_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesUp_FlavQCD",nCleanedJetsPt30BTagged_bTagSF_jesUp_FlavQCD, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesUp_HF",nCleanedJetsPt30BTagged_bTagSF_jesUp_HF, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesUp_HF_year",nCleanedJetsPt30BTagged_bTagSF_jesUp_HF_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesUp_RelBal",nCleanedJetsPt30BTagged_bTagSF_jesUp_RelBal, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesUp_RelSample_year",nCleanedJetsPt30BTagged_bTagSF_jesUp_RelSample_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesDn",nCleanedJetsPt30BTagged_bTagSF_jesDn, failedTreeLevel >= minimalFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesDn_Total",nCleanedJetsPt30BTagged_bTagSF_jesDn_Total, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesDn_Abs",nCleanedJetsPt30BTagged_bTagSF_jesDn_Abs, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesDn_Abs_year",nCleanedJetsPt30BTagged_bTagSF_jesDn_Abs_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesDn_BBEC1",nCleanedJetsPt30BTagged_bTagSF_jesDn_BBEC1, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesDn_BBEC1_year",nCleanedJetsPt30BTagged_bTagSF_jesDn_BBEC1_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesDn_EC2",nCleanedJetsPt30BTagged_bTagSF_jesDn_EC2, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesDn_EC2_year",nCleanedJetsPt30BTagged_bTagSF_jesDn_EC2_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesDn_FlavQCD",nCleanedJetsPt30BTagged_bTagSF_jesDn_FlavQCD, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesDn_HF",nCleanedJetsPt30BTagged_bTagSF_jesDn_HF, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesDn_HF_year",nCleanedJetsPt30BTagged_bTagSF_jesDn_HF_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesDn_RelBal",nCleanedJetsPt30BTagged_bTagSF_jesDn_RelBal, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesDn_RelSample_year",nCleanedJetsPt30BTagged_bTagSF_jesDn_RelSample_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jerUp",nCleanedJetsPt30BTagged_bTagSF_jerUp, failedTreeLevel >= minimalFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jerDn",nCleanedJetsPt30BTagged_bTagSF_jerDn, failedTreeLevel >= minimalFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSFUp",nCleanedJetsPt30BTagged_bTagSFUp, failedTreeLevel >= minimalFailedTree);
-  myTree->Book("nCleanedJetsPt30BTagged_bTagSFDn",nCleanedJetsPt30BTagged_bTagSFDn, failedTreeLevel >= minimalFailedTree);
+  // myTree->Book("nCleanedJets",nCleanedJets, failedTreeLevel >= minimalFailedTree);
+  // myTree->Book("nCleanedJetsPt30",nCleanedJetsPt30, failedTreeLevel >= minimalFailedTree);
+  // myTree->Book("nCleanedJetsPt30_jesUp",nCleanedJetsPt30_jesUp, failedTreeLevel >= minimalFailedTree);
+  // myTree->Book("nCleanedJetsPt30_jesUp_Total",nCleanedJetsPt30_jesUp_Total, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30_jesUp_Abs",nCleanedJetsPt30_jesUp_Abs, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30_jesUp_Abs_year",nCleanedJetsPt30_jesUp_Abs_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30_jesUp_BBEC1",nCleanedJetsPt30_jesUp_BBEC1, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30_jesUp_BBEC1_year",nCleanedJetsPt30_jesUp_BBEC1_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30_jesUp_EC2",nCleanedJetsPt30_jesUp_EC2, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30_jesUp_EC2_year",nCleanedJetsPt30_jesUp_EC2_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30_jesUp_FlavQCD",nCleanedJetsPt30_jesUp_FlavQCD, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30_jesUp_HF",nCleanedJetsPt30_jesUp_HF, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30_jesUp_HF_year",nCleanedJetsPt30_jesUp_HF_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30_jesUp_RelBal",nCleanedJetsPt30_jesUp_RelBal, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30_jesUp_RelSample_year",nCleanedJetsPt30_jesUp_RelSample_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30_jesDn",nCleanedJetsPt30_jesDn, failedTreeLevel >= minimalFailedTree);
+  // myTree->Book("nCleanedJetsPt30_jesDn_Total",nCleanedJetsPt30_jesDn_Total, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30_jesDn_Abs",nCleanedJetsPt30_jesDn_Abs, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30_jesDn_Abs_year",nCleanedJetsPt30_jesDn_Abs_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30_jesDn_BBEC1",nCleanedJetsPt30_jesDn_BBEC1, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30_jesDn_BBEC1_year",nCleanedJetsPt30_jesDn_BBEC1_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30_jesDn_EC2",nCleanedJetsPt30_jesDn_EC2, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30_jesDn_EC2_year",nCleanedJetsPt30_jesDn_EC2_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30_jesDn_FlavQCD",nCleanedJetsPt30_jesDn_FlavQCD, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30_jesDn_HF",nCleanedJetsPt30_jesDn_HF, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30_jesDn_HF_year",nCleanedJetsPt30_jesDn_HF_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30_jesDn_RelBal",nCleanedJetsPt30_jesDn_RelBal, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30_jesDn_RelSample_year",nCleanedJetsPt30_jesDn_RelSample_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30_jerUp",nCleanedJetsPt30_jerUp, failedTreeLevel >= minimalFailedTree);
+  // myTree->Book("nCleanedJetsPt30_jerDn",nCleanedJetsPt30_jerDn, failedTreeLevel >= minimalFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged",nCleanedJetsPt30BTagged, failedTreeLevel >= minimalFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF",nCleanedJetsPt30BTagged_bTagSF, failedTreeLevel >= minimalFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesUp",nCleanedJetsPt30BTagged_bTagSF_jesUp, failedTreeLevel >= minimalFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesUp_Total",nCleanedJetsPt30BTagged_bTagSF_jesUp_Total, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesUp_Abs",nCleanedJetsPt30BTagged_bTagSF_jesUp_Abs, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesUp_Abs_year",nCleanedJetsPt30BTagged_bTagSF_jesUp_Abs_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesUp_BBEC1",nCleanedJetsPt30BTagged_bTagSF_jesUp_BBEC1, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesUp_BBEC1_year",nCleanedJetsPt30BTagged_bTagSF_jesUp_BBEC1_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesUp_EC2",nCleanedJetsPt30BTagged_bTagSF_jesUp_EC2, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesUp_EC2_year",nCleanedJetsPt30BTagged_bTagSF_jesUp_EC2_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesUp_FlavQCD",nCleanedJetsPt30BTagged_bTagSF_jesUp_FlavQCD, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesUp_HF",nCleanedJetsPt30BTagged_bTagSF_jesUp_HF, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesUp_HF_year",nCleanedJetsPt30BTagged_bTagSF_jesUp_HF_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesUp_RelBal",nCleanedJetsPt30BTagged_bTagSF_jesUp_RelBal, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesUp_RelSample_year",nCleanedJetsPt30BTagged_bTagSF_jesUp_RelSample_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesDn",nCleanedJetsPt30BTagged_bTagSF_jesDn, failedTreeLevel >= minimalFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesDn_Total",nCleanedJetsPt30BTagged_bTagSF_jesDn_Total, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesDn_Abs",nCleanedJetsPt30BTagged_bTagSF_jesDn_Abs, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesDn_Abs_year",nCleanedJetsPt30BTagged_bTagSF_jesDn_Abs_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesDn_BBEC1",nCleanedJetsPt30BTagged_bTagSF_jesDn_BBEC1, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesDn_BBEC1_year",nCleanedJetsPt30BTagged_bTagSF_jesDn_BBEC1_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesDn_EC2",nCleanedJetsPt30BTagged_bTagSF_jesDn_EC2, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesDn_EC2_year",nCleanedJetsPt30BTagged_bTagSF_jesDn_EC2_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesDn_FlavQCD",nCleanedJetsPt30BTagged_bTagSF_jesDn_FlavQCD, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesDn_HF",nCleanedJetsPt30BTagged_bTagSF_jesDn_HF, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesDn_HF_year",nCleanedJetsPt30BTagged_bTagSF_jesDn_HF_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesDn_RelBal",nCleanedJetsPt30BTagged_bTagSF_jesDn_RelBal, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jesDn_RelSample_year",nCleanedJetsPt30BTagged_bTagSF_jesDn_RelSample_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jerUp",nCleanedJetsPt30BTagged_bTagSF_jerUp, failedTreeLevel >= minimalFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSF_jerDn",nCleanedJetsPt30BTagged_bTagSF_jerDn, failedTreeLevel >= minimalFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSFUp",nCleanedJetsPt30BTagged_bTagSFUp, failedTreeLevel >= minimalFailedTree);
+  // myTree->Book("nCleanedJetsPt30BTagged_bTagSFDn",nCleanedJetsPt30BTagged_bTagSFDn, failedTreeLevel >= minimalFailedTree);
   myTree->Book("trigWord",trigWord, failedTreeLevel >= minimalFailedTree);
   myTree->Book("evtPassMETFilter",evtPassMETTrigger, failedTreeLevel >= minimalFailedTree);
   myTree->Book("ZZMass",ZZMass, false);
@@ -3067,82 +3067,82 @@ void HZZ4lNtupleMaker::BookAllBranches(){
     myTree->Book("fsrGenPt",fsrGenPt, false);
   }
 
-  //Jet variables
-  myTree->Book("JetPt",JetPt, failedTreeLevel >= minimalFailedTree);
-  myTree->Book("JetEta",JetEta, failedTreeLevel >= minimalFailedTree);
-  myTree->Book("JetPhi",JetPhi, failedTreeLevel >= minimalFailedTree);
-  myTree->Book("JetMass",JetMass, failedTreeLevel >= minimalFailedTree);
-  myTree->Book("JetEnergy",JetEnergy, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetBTagger",JetBTagger, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetIsBtagged",JetIsBtagged, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetIsBtaggedWithSF",JetIsBtaggedWithSF, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetIsBtaggedWithSFUp",JetIsBtaggedWithSFUp, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetIsBtaggedWithSFDn",JetIsBtaggedWithSFDn, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetQGLikelihood",JetQGLikelihood, failedTreeLevel >= fullFailedTree);
-  if(addQGLInputs){
-    myTree->Book("JetAxis2",JetAxis2, failedTreeLevel >= fullFailedTree);
-    myTree->Book("JetMult",JetMult, failedTreeLevel >= fullFailedTree);
-    myTree->Book("JetPtD",JetPtD, failedTreeLevel >= fullFailedTree);
-  }
-  myTree->Book("JetSigma",JetSigma, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetSigma_Total",JetSigma_Total, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetSigma_Abs",JetSigma_Abs, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetSigma_Abs_year",JetSigma_Abs_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetSigma_BBEC1",JetSigma_BBEC1, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetSigma_BBEC1_year",JetSigma_BBEC1_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetSigma_EC2",JetSigma_EC2, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetSigma_EC2_year",JetSigma_EC2_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetSigma_FlavQCD",JetSigma_FlavQCD, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetSigma_HF",JetSigma_HF, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetSigma_HF_year",JetSigma_HF_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetSigma_RelBal",JetSigma_RelBal, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetSigma_RelSample_year",JetSigma_RelSample_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetHadronFlavour",JetHadronFlavour, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetPartonFlavour",JetPartonFlavour, failedTreeLevel >= fullFailedTree);
+  // //Jet variables
+  // myTree->Book("JetPt",JetPt, failedTreeLevel >= minimalFailedTree);
+  // myTree->Book("JetEta",JetEta, failedTreeLevel >= minimalFailedTree);
+  // myTree->Book("JetPhi",JetPhi, failedTreeLevel >= minimalFailedTree);
+  // myTree->Book("JetMass",JetMass, failedTreeLevel >= minimalFailedTree);
+  // myTree->Book("JetEnergy",JetEnergy, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetBTagger",JetBTagger, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetIsBtagged",JetIsBtagged, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetIsBtaggedWithSF",JetIsBtaggedWithSF, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetIsBtaggedWithSFUp",JetIsBtaggedWithSFUp, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetIsBtaggedWithSFDn",JetIsBtaggedWithSFDn, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetQGLikelihood",JetQGLikelihood, failedTreeLevel >= fullFailedTree);
+  // if(addQGLInputs){
+  //   myTree->Book("JetAxis2",JetAxis2, failedTreeLevel >= fullFailedTree);
+  //   myTree->Book("JetMult",JetMult, failedTreeLevel >= fullFailedTree);
+  //   myTree->Book("JetPtD",JetPtD, failedTreeLevel >= fullFailedTree);
+  // }
+  // myTree->Book("JetSigma",JetSigma, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetSigma_Total",JetSigma_Total, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetSigma_Abs",JetSigma_Abs, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetSigma_Abs_year",JetSigma_Abs_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetSigma_BBEC1",JetSigma_BBEC1, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetSigma_BBEC1_year",JetSigma_BBEC1_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetSigma_EC2",JetSigma_EC2, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetSigma_EC2_year",JetSigma_EC2_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetSigma_FlavQCD",JetSigma_FlavQCD, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetSigma_HF",JetSigma_HF, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetSigma_HF_year",JetSigma_HF_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetSigma_RelBal",JetSigma_RelBal, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetSigma_RelSample_year",JetSigma_RelSample_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetHadronFlavour",JetHadronFlavour, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetPartonFlavour",JetPartonFlavour, failedTreeLevel >= fullFailedTree);
+  //
+  // myTree->Book("JetRawPt",JetRawPt, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetPtJEC_noJER",JetPtJEC_noJER, failedTreeLevel >= fullFailedTree);
+  //
+  // myTree->Book("JetPt_JESUp",JetJESUp, failedTreeLevel >= minimalFailedTree);
+  // myTree->Book("JetPt_JESUp_Total",JetJESUp_Total, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetPt_JESUp_Abs",JetJESUp_Abs, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetPt_JESUp_Abs_year",JetJESUp_Abs_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetPt_JESUp_BBEC1",JetJESUp_BBEC1, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetPt_JESUp_BBEC1_year",JetJESUp_BBEC1_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetPt_JESUp_EC2",JetJESUp_EC2, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetPt_JESUp_EC2_year",JetJESUp_EC2_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetPt_JESUp_FlavQCD",JetJESUp_FlavQCD, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetPt_JESUp_HF",JetJESUp_HF, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetPt_JESUp_HF_year",JetJESUp_HF_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetPt_JESUp_RelBal",JetJESUp_RelBal, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetPt_JESUp_RelSample_year",JetJESUp_RelSample_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetPt_JESDown",JetJESDown, failedTreeLevel >= minimalFailedTree);
+  // myTree->Book("JetPt_JESDown_Total",JetJESDown_Total, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetPt_JESDown_Abs",JetJESDown_Abs, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetPt_JESDown_Abs_year",JetJESDown_Abs_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetPt_JESDown_BBEC1",JetJESDown_BBEC1, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetPt_JESDown_BBEC1_year",JetJESDown_BBEC1_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetPt_JESDown_EC2",JetJESDown_EC2, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetPt_JESDown_EC2_year",JetJESDown_EC2_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetPt_JESDown_FlavQCD",JetJESDown_FlavQCD, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetPt_JESDown_HF",JetJESDown_HF, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetPt_JESDown_HF_year",JetJESDown_HF_year, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetPt_JESDown_RelBal",JetJESDown_RelBal, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetPt_JESDown_RelSample_year",JetJESDown_RelSample_year, failedTreeLevel >= fullFailedTree);
+  //
+  // myTree->Book("JetPt_JERUp",JetJERUp, failedTreeLevel >= minimalFailedTree);
+  // myTree->Book("JetPt_JERDown",JetJERDown, failedTreeLevel >= minimalFailedTree);
+  //
+  // myTree->Book("JetID", JetID, failedTreeLevel >= minimalFailedTree);
+  // myTree->Book("JetPUID", JetPUID, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetPUID_score", JetPUID_score, failedTreeLevel >= fullFailedTree);
+  // myTree->Book("JetPUValue", JetPUValue, failedTreeLevel >= fullFailedTree);
 
-  myTree->Book("JetRawPt",JetRawPt, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetPtJEC_noJER",JetPtJEC_noJER, failedTreeLevel >= fullFailedTree);
-
-  myTree->Book("JetPt_JESUp",JetJESUp, failedTreeLevel >= minimalFailedTree);
-  myTree->Book("JetPt_JESUp_Total",JetJESUp_Total, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetPt_JESUp_Abs",JetJESUp_Abs, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetPt_JESUp_Abs_year",JetJESUp_Abs_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetPt_JESUp_BBEC1",JetJESUp_BBEC1, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetPt_JESUp_BBEC1_year",JetJESUp_BBEC1_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetPt_JESUp_EC2",JetJESUp_EC2, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetPt_JESUp_EC2_year",JetJESUp_EC2_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetPt_JESUp_FlavQCD",JetJESUp_FlavQCD, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetPt_JESUp_HF",JetJESUp_HF, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetPt_JESUp_HF_year",JetJESUp_HF_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetPt_JESUp_RelBal",JetJESUp_RelBal, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetPt_JESUp_RelSample_year",JetJESUp_RelSample_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetPt_JESDown",JetJESDown, failedTreeLevel >= minimalFailedTree);
-  myTree->Book("JetPt_JESDown_Total",JetJESDown_Total, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetPt_JESDown_Abs",JetJESDown_Abs, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetPt_JESDown_Abs_year",JetJESDown_Abs_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetPt_JESDown_BBEC1",JetJESDown_BBEC1, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetPt_JESDown_BBEC1_year",JetJESDown_BBEC1_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetPt_JESDown_EC2",JetJESDown_EC2, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetPt_JESDown_EC2_year",JetJESDown_EC2_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetPt_JESDown_FlavQCD",JetJESDown_FlavQCD, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetPt_JESDown_HF",JetJESDown_HF, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetPt_JESDown_HF_year",JetJESDown_HF_year, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetPt_JESDown_RelBal",JetJESDown_RelBal, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetPt_JESDown_RelSample_year",JetJESDown_RelSample_year, failedTreeLevel >= fullFailedTree);
-
-  myTree->Book("JetPt_JERUp",JetJERUp, failedTreeLevel >= minimalFailedTree);
-  myTree->Book("JetPt_JERDown",JetJERDown, failedTreeLevel >= minimalFailedTree);
-
-  myTree->Book("JetID", JetID, failedTreeLevel >= minimalFailedTree);
-  myTree->Book("JetPUID", JetPUID, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetPUID_score", JetPUID_score, failedTreeLevel >= fullFailedTree);
-  myTree->Book("JetPUValue", JetPUValue, failedTreeLevel >= fullFailedTree);
-
-  myTree->Book("DiJetMass",DiJetMass, false);
+  // myTree->Book("DiJetMass",DiJetMass, false);
 //   myTree->Book("DiJetMassPlus",DiJetMassPlus, false); // FIXME: add back once filled again
 //   myTree->Book("DiJetMassMinus",DiJetMassMinus, false);
-  myTree->Book("DiJetDEta",DiJetDEta, false);
-  myTree->Book("DiJetFisher",DiJetFisher, false);
+  // myTree->Book("DiJetDEta",DiJetDEta, false);
+  // myTree->Book("DiJetFisher",DiJetFisher, false);
 
   //Photon variables
   myTree->Book("PhotonPt",PhotonPt, failedTreeLevel >= fullFailedTree);
@@ -3181,204 +3181,204 @@ void HZZ4lNtupleMaker::BookAllBranches(){
       myTree->Book("KFactor_QCD_qqZZ_Pt", KFactor_QCD_qqZZ_Pt, failedTreeLevel >= minimalFailedTree);
     }
 
-    myTree->Book("genFinalState", genFinalState, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("genProcessId", genProcessId, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("genFinalState", genFinalState, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("genProcessId", genProcessId, failedTreeLevel >= minimalFailedTree);
     myTree->Book("genHEPMCweight", genHEPMCweight, failedTreeLevel >= minimalFailedTree);
     if (year == 2017 || year == 2018) myTree->Book("genHEPMCweight_NNLO", genHEPMCweight_NNLO, failedTreeLevel >= minimalFailedTree);
     myTree->Book("genHEPMCweight_POWHEGonly", genHEPMCweight_POWHEGonly, failedTreeLevel >= minimalFailedTree);
     myTree->Book("PUWeight", PUWeight, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("PUWeight_Dn", PUWeight_Dn, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("PUWeight_Up", PUWeight_Up, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("PUWeight_Dn", PUWeight_Dn, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("PUWeight_Up", PUWeight_Up, failedTreeLevel >= minimalFailedTree);
     myTree->Book("dataMCWeight", dataMCWeight, false);
     myTree->Book("trigEffWeight", trigEffWeight, false);
     myTree->Book("overallEventWeight", overallEventWeight, false);
     myTree->Book("L1prefiringWeight", L1prefiringWeight, false);
-    myTree->Book("L1prefiringWeightUp", L1prefiringWeightUp, false);
-    myTree->Book("L1prefiringWeightDn", L1prefiringWeightDn, false);
-    myTree->Book("HqTMCweight", HqTMCweight, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("L1prefiringWeightUp", L1prefiringWeightUp, false);
+    // myTree->Book("L1prefiringWeightDn", L1prefiringWeightDn, false);
+    // myTree->Book("HqTMCweight", HqTMCweight, failedTreeLevel >= minimalFailedTree);
     myTree->Book("xsec", xsection, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("genxsec", genxsection, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("genBR", genbranchingratio, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("genExtInfo", genExtInfo, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenHMass", GenHMass, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenHPt", GenHPt, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenHRapidity", GenHRapidity, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenZ1Mass", GenZ1Mass, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenZ1Pt", GenZ1Pt, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenZ1Phi", GenZ1Phi, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenZ1Flav", GenZ1Flav, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenZ2Mass", GenZ2Mass, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenZ2Pt", GenZ2Pt, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenZ2Phi", GenZ2Phi, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenZ2Flav", GenZ2Flav, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenLep1Pt", GenLep1Pt, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenLep1Eta", GenLep1Eta, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenLep1Phi", GenLep1Phi, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenLep1Id", GenLep1Id, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenLep2Pt", GenLep2Pt, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenLep2Eta", GenLep2Eta, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenLep2Phi", GenLep2Phi, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenLep2Id", GenLep2Id, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenLep3Pt", GenLep3Pt, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenLep3Eta", GenLep3Eta, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenLep3Phi", GenLep3Phi, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenLep3Id", GenLep3Id, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenLep4Pt", GenLep4Pt, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenLep4Eta", GenLep4Eta, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenLep4Phi", GenLep4Phi, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenLep4Id", GenLep4Id, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenAssocLep1Pt", GenAssocLep1Pt, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenAssocLep1Eta", GenAssocLep1Eta, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenAssocLep1Phi", GenAssocLep1Phi, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenAssocLep1Id", GenAssocLep1Id, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenAssocLep2Pt", GenAssocLep2Pt, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenAssocLep2Eta", GenAssocLep2Eta, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenAssocLep2Phi", GenAssocLep2Phi, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenAssocLep2Id", GenAssocLep2Id, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GenLep1Iso", GenLep1Iso, failedTreeLevel >= minimalFailedTree); //AT
-    myTree->Book("GenLep2Iso", GenLep2Iso, failedTreeLevel >= minimalFailedTree); //AT
-    myTree->Book("GenLep3Iso", GenLep3Iso, failedTreeLevel >= minimalFailedTree); //AT
-    myTree->Book("GenLep4Iso", GenLep4Iso, failedTreeLevel >= minimalFailedTree); //AT
-    myTree->Book("Gencosthetastar", Gencosthetastar, failedTreeLevel >= minimalFailedTree); //AT
-    myTree->Book("GenhelcosthetaZ1", GenhelcosthetaZ1, failedTreeLevel >= minimalFailedTree); //AT
-    myTree->Book("GenhelcosthetaZ2", GenhelcosthetaZ2, failedTreeLevel >= minimalFailedTree); //AT
-    myTree->Book("Genhelphi", Genhelphi, failedTreeLevel >= minimalFailedTree); //AT
-    myTree->Book("GenphistarZ1", Genhelphi, failedTreeLevel >= minimalFailedTree); //AT
-    myTree->Book("GenJetPt", GenJetPt, failedTreeLevel >= minimalFailedTree); //ATjets
-    myTree->Book("GenJetMass", GenJetMass, failedTreeLevel >= minimalFailedTree); //ATjets
-    myTree->Book("GenJetEta", GenJetEta, failedTreeLevel >= minimalFailedTree); //ATjets
-    myTree->Book("GenJetPhi", GenJetPhi, failedTreeLevel >= minimalFailedTree); //ATjets
-    myTree->Book("GenJetRapidity", GenJetRapidity, failedTreeLevel >= minimalFailedTree); //ATjets
-    myTree->Book("nGenJet", nGenJet, failedTreeLevel >= minimalFailedTree); //ATjets
-    myTree->Book("GenCleanedJetPt", GenCleanedJetPt, failedTreeLevel >= minimalFailedTree); //ATjets
-    myTree->Book("GenCleanedJetMass", GenCleanedJetMass, failedTreeLevel >= minimalFailedTree); //ATjets
-    myTree->Book("GenCleanedJetEta", GenCleanedJetEta, failedTreeLevel >= minimalFailedTree); //ATjets
-    myTree->Book("GenCleanedJetPhi", GenCleanedJetPhi, failedTreeLevel >= minimalFailedTree); //ATjets
-    myTree->Book("GenCleanedJetRapidity", GenCleanedJetRapidity, failedTreeLevel >= minimalFailedTree); //ATjets
-    myTree->Book("GenCleanedJetHadronFlavour", GenCleanedJetHadronFlavour, failedTreeLevel >= minimalFailedTree); //ATjets
-    myTree->Book("nCleanedGenJet", nCleanedGenJet, failedTreeLevel >= minimalFailedTree); //ATjets
-    myTree->Book("htxs_errorCode", htxs_errorCode, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("htxs_prodMode", htxs_prodMode, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("htxsNJets", htxsNJets, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("htxsHPt", htxsHPt, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("htxs_stage0_cat", htxs_stage0_cat, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("htxs_stage1p1_cat", htxs_stage1p1_cat, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("htxs_stage1p2_cat", htxs_stage1p2_cat, failedTreeLevel >= minimalFailedTree);
-    if(apply_QCD_GGF_UNCERT)
-      {
-	myTree->Book("ggH_NNLOPS_weight", ggH_NNLOPS_weight, failedTreeLevel >= minimalFailedTree);
-	myTree->Book("ggH_NNLOPS_weight_unc", ggH_NNLOPS_weight_unc, failedTreeLevel >= minimalFailedTree);
-	myTree->Book("qcd_ggF_uncertSF", qcd_ggF_uncertSF, failedTreeLevel >= minimalFailedTree);
-      }
+    // myTree->Book("genxsec", genxsection, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("genBR", genbranchingratio, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("genExtInfo", genExtInfo, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenHMass", GenHMass, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenHPt", GenHPt, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenHRapidity", GenHRapidity, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenZ1Mass", GenZ1Mass, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenZ1Pt", GenZ1Pt, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenZ1Phi", GenZ1Phi, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenZ1Flav", GenZ1Flav, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenZ2Mass", GenZ2Mass, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenZ2Pt", GenZ2Pt, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenZ2Phi", GenZ2Phi, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenZ2Flav", GenZ2Flav, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenLep1Pt", GenLep1Pt, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenLep1Eta", GenLep1Eta, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenLep1Phi", GenLep1Phi, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenLep1Id", GenLep1Id, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenLep2Pt", GenLep2Pt, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenLep2Eta", GenLep2Eta, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenLep2Phi", GenLep2Phi, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenLep2Id", GenLep2Id, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenLep3Pt", GenLep3Pt, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenLep3Eta", GenLep3Eta, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenLep3Phi", GenLep3Phi, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenLep3Id", GenLep3Id, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenLep4Pt", GenLep4Pt, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenLep4Eta", GenLep4Eta, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenLep4Phi", GenLep4Phi, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenLep4Id", GenLep4Id, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenAssocLep1Pt", GenAssocLep1Pt, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenAssocLep1Eta", GenAssocLep1Eta, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenAssocLep1Phi", GenAssocLep1Phi, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenAssocLep1Id", GenAssocLep1Id, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenAssocLep2Pt", GenAssocLep2Pt, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenAssocLep2Eta", GenAssocLep2Eta, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenAssocLep2Phi", GenAssocLep2Phi, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenAssocLep2Id", GenAssocLep2Id, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GenLep1Iso", GenLep1Iso, failedTreeLevel >= minimalFailedTree); //AT
+    // myTree->Book("GenLep2Iso", GenLep2Iso, failedTreeLevel >= minimalFailedTree); //AT
+    // myTree->Book("GenLep3Iso", GenLep3Iso, failedTreeLevel >= minimalFailedTree); //AT
+    // myTree->Book("GenLep4Iso", GenLep4Iso, failedTreeLevel >= minimalFailedTree); //AT
+    // myTree->Book("Gencosthetastar", Gencosthetastar, failedTreeLevel >= minimalFailedTree); //AT
+    // myTree->Book("GenhelcosthetaZ1", GenhelcosthetaZ1, failedTreeLevel >= minimalFailedTree); //AT
+    // myTree->Book("GenhelcosthetaZ2", GenhelcosthetaZ2, failedTreeLevel >= minimalFailedTree); //AT
+    // myTree->Book("Genhelphi", Genhelphi, failedTreeLevel >= minimalFailedTree); //AT
+    // myTree->Book("GenphistarZ1", Genhelphi, failedTreeLevel >= minimalFailedTree); //AT
+    // myTree->Book("GenJetPt", GenJetPt, failedTreeLevel >= minimalFailedTree); //ATjets
+    // myTree->Book("GenJetMass", GenJetMass, failedTreeLevel >= minimalFailedTree); //ATjets
+    // myTree->Book("GenJetEta", GenJetEta, failedTreeLevel >= minimalFailedTree); //ATjets
+    // myTree->Book("GenJetPhi", GenJetPhi, failedTreeLevel >= minimalFailedTree); //ATjets
+    // myTree->Book("GenJetRapidity", GenJetRapidity, failedTreeLevel >= minimalFailedTree); //ATjets
+    // myTree->Book("nGenJet", nGenJet, failedTreeLevel >= minimalFailedTree); //ATjets
+    // myTree->Book("GenCleanedJetPt", GenCleanedJetPt, failedTreeLevel >= minimalFailedTree); //ATjets
+    // myTree->Book("GenCleanedJetMass", GenCleanedJetMass, failedTreeLevel >= minimalFailedTree); //ATjets
+    // myTree->Book("GenCleanedJetEta", GenCleanedJetEta, failedTreeLevel >= minimalFailedTree); //ATjets
+    // myTree->Book("GenCleanedJetPhi", GenCleanedJetPhi, failedTreeLevel >= minimalFailedTree); //ATjets
+    // myTree->Book("GenCleanedJetRapidity", GenCleanedJetRapidity, failedTreeLevel >= minimalFailedTree); //ATjets
+    // myTree->Book("GenCleanedJetHadronFlavour", GenCleanedJetHadronFlavour, failedTreeLevel >= minimalFailedTree); //ATjets
+    // myTree->Book("nCleanedGenJet", nCleanedGenJet, failedTreeLevel >= minimalFailedTree); //ATjets
+    // myTree->Book("htxs_errorCode", htxs_errorCode, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("htxs_prodMode", htxs_prodMode, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("htxsNJets", htxsNJets, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("htxsHPt", htxsHPt, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("htxs_stage0_cat", htxs_stage0_cat, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("htxs_stage1p1_cat", htxs_stage1p1_cat, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("htxs_stage1p2_cat", htxs_stage1p2_cat, failedTreeLevel >= minimalFailedTree);
+  //   if(apply_QCD_GGF_UNCERT)
+  //     {
+	// myTree->Book("ggH_NNLOPS_weight", ggH_NNLOPS_weight, failedTreeLevel >= minimalFailedTree);
+	// myTree->Book("ggH_NNLOPS_weight_unc", ggH_NNLOPS_weight_unc, failedTreeLevel >= minimalFailedTree);
+	// myTree->Book("qcd_ggF_uncertSF", qcd_ggF_uncertSF, failedTreeLevel >= minimalFailedTree);
+  //     }
 
-    //ATbbf
-    if (verbose) cout<<"book GENbbf"<<endl;
-    //Event variables
-    // myTree->Book("GENfinalState",GENfinalState,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("passedFiducialSelection_bbf",passedFiducialSelection_bbf,failedTreeLevel >= minimalFailedTree);
-    // lepton variables
-    myTree->Book("GENlep_pt",GENlep_pt,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENlep_eta",GENlep_eta,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENlep_phi",GENlep_phi,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENlep_mass",GENlep_mass,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENlep_id",GENlep_id,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENlep_status",GENlep_status,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENlep_MomId",GENlep_MomId,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENlep_MomMomId",GENlep_MomMomId,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENlep_Hindex",GENlep_Hindex,failedTreeLevel >= minimalFailedTree);
-    // myTree->Book("GENlep_isoCH",GENlep_isoCH,failedTreeLevel >= minimalFailedTree);
-    // myTree->Book("GENlep_isoNH",GENlep_isoNH,failedTreeLevel >= minimalFailedTree);
-    // myTree->Book("GENlep_isoPhot",GENlep_isoPhot,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENlep_RelIso",GENlep_RelIso,failedTreeLevel >= minimalFailedTree);
-    // Higgs candidate variables (calculated using selected gen leptons)
-    myTree->Book("GENH_pt",GENH_pt,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENH_eta",GENH_eta,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENH_phi",GENH_phi,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENH_mass",GENH_mass,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENmass4l",GENmass4l,failedTreeLevel >= minimalFailedTree);
-    // myTree->Book("GENmass4mu",GENmass4mu,failedTreeLevel >= minimalFailedTree);
-    // myTree->Book("GENmass4e",GENmass4e,failedTreeLevel >= minimalFailedTree);
-    // myTree->Book("GENmass2e2mu",GENmass2e2mu,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENpT4l",GENpT4l,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENeta4l",GENeta4l,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENphi4l",GENphi4l,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENrapidity4l",GENrapidity4l,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENcosTheta1",GENcosTheta1,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENcosTheta2",GENcosTheta2,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENcosThetaStar",GENcosThetaStar,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENPhi",GENPhi,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENPhi1",GENPhi1,failedTreeLevel >= minimalFailedTree);
-    // myTree->Book("GENMH",GENMH,failedTreeLevel >= minimalFailedTree);
-
-    // Z candidate variables
-    myTree->Book("GENZ_pt",GENZ_pt,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENZ_eta",GENZ_eta,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENZ_phi",GENZ_phi,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENZ_mass",GENZ_mass,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENZ_DaughtersId",GENZ_DaughtersId,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENZ_MomId",GENZ_MomId,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENmassZ1",GENmassZ1,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENmassZ2",GENmassZ2,failedTreeLevel >= minimalFailedTree);
-    // myTree->Book("GENpTZ1",GENpTZ1,failedTreeLevel >= minimalFailedTree);
-    // myTree->Book("GENpTZ2",GENpTZ2,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENdPhiZZ",GENdPhiZZ,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENmassZZ",GENmassZZ,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENpTZZ",GENpTZZ,failedTreeLevel >= minimalFailedTree);
-    // Jets pt30_eta4p7
-    myTree->Book("GENjetsPt_pt30_eta4p7",GENjetsPt_pt30_eta4p7,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENjetsEta_pt30_eta4p7",GENjetsEta_pt30_eta4p7,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENjetsPhi_pt30_eta4p7",GENjetsPhi_pt30_eta4p7,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENjetsMass_pt30_eta4p7",GENjetsMass_pt30_eta4p7,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENnjets_pt30_eta4p7",GENnjets_pt30_eta4p7,failedTreeLevel >= minimalFailedTree);
-    // Jets pt30_eta2p5
-    myTree->Book("GENjetsPt_pt30_eta2p5",GENjetsPt_pt30_eta2p5,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENjetsEta_pt30_eta2p5",GENjetsEta_pt30_eta2p5,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENjetsPhi_pt30_eta2p5",GENjetsPhi_pt30_eta2p5,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENjetsMass_pt30_eta2p5",GENjetsMass_pt30_eta2p5,failedTreeLevel >= minimalFailedTree);
-    myTree->Book("GENnjets_pt30_eta2p5",GENnjets_pt30_eta2p5,failedTreeLevel >= minimalFailedTree);
-
-    if (addLHEKinematics){
-      myTree->Book("LHEMotherPz", LHEMotherPz, failedTreeLevel >= LHEFailedTree);
-      myTree->Book("LHEMotherE", LHEMotherE, failedTreeLevel >= LHEFailedTree);
-      myTree->Book("LHEMotherId", LHEMotherId, failedTreeLevel >= LHEFailedTree);
-      myTree->Book("LHEDaughterPt", LHEDaughterPt, failedTreeLevel >= LHEFailedTree);
-      myTree->Book("LHEDaughterEta", LHEDaughterEta, failedTreeLevel >= LHEFailedTree);
-      myTree->Book("LHEDaughterPhi", LHEDaughterPhi, failedTreeLevel >= LHEFailedTree);
-      myTree->Book("LHEDaughterMass", LHEDaughterMass, failedTreeLevel >= LHEFailedTree);
-      myTree->Book("LHEDaughterId", LHEDaughterId, failedTreeLevel >= LHEFailedTree);
-      myTree->Book("LHEAssociatedParticlePt", LHEAssociatedParticlePt, failedTreeLevel >= LHEFailedTree);
-      myTree->Book("LHEAssociatedParticleEta", LHEAssociatedParticleEta, failedTreeLevel >= LHEFailedTree);
-      myTree->Book("LHEAssociatedParticlePhi", LHEAssociatedParticlePhi, failedTreeLevel >= LHEFailedTree);
-      myTree->Book("LHEAssociatedParticleMass", LHEAssociatedParticleMass, failedTreeLevel >= LHEFailedTree);
-      myTree->Book("LHEAssociatedParticleId", LHEAssociatedParticleId, failedTreeLevel >= LHEFailedTree);
-    }
-
-    myTree->Book("LHEPDFScale", LHEPDFScale, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("LHEweight_QCDscale_muR1_muF1", LHEweight_QCDscale_muR1_muF1, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("LHEweight_QCDscale_muR1_muF2", LHEweight_QCDscale_muR1_muF2, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("LHEweight_QCDscale_muR1_muF0p5", LHEweight_QCDscale_muR1_muF0p5, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("LHEweight_QCDscale_muR2_muF1", LHEweight_QCDscale_muR2_muF1, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("LHEweight_QCDscale_muR2_muF2", LHEweight_QCDscale_muR2_muF2, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("LHEweight_QCDscale_muR2_muF0p5", LHEweight_QCDscale_muR2_muF0p5, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("LHEweight_QCDscale_muR0p5_muF1", LHEweight_QCDscale_muR0p5_muF1, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("LHEweight_QCDscale_muR0p5_muF2", LHEweight_QCDscale_muR0p5_muF2, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("LHEweight_QCDscale_muR0p5_muF0p5", LHEweight_QCDscale_muR0p5_muF0p5, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("LHEweight_PDFVariation_Up", LHEweight_PDFVariation_Up, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("LHEweight_PDFVariation_Dn", LHEweight_PDFVariation_Dn, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("LHEweight_AsMZ_Up", LHEweight_AsMZ_Up, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("LHEweight_AsMZ_Dn", LHEweight_AsMZ_Dn, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("PythiaWeight_isr_muR4", PythiaWeight_isr_muR4, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("PythiaWeight_isr_muR2", PythiaWeight_isr_muR2, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("PythiaWeight_isr_muRsqrt2", PythiaWeight_isr_muRsqrt2, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("PythiaWeight_isr_muRoneoversqrt2", PythiaWeight_isr_muRoneoversqrt2, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("PythiaWeight_isr_muR0p5", PythiaWeight_isr_muR0p5, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("PythiaWeight_isr_muR0p25", PythiaWeight_isr_muR0p25, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("PythiaWeight_fsr_muR4", PythiaWeight_fsr_muR4, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("PythiaWeight_fsr_muR2", PythiaWeight_fsr_muR2, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("PythiaWeight_fsr_muRsqrt2", PythiaWeight_fsr_muRsqrt2, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("PythiaWeight_fsr_muRoneoversqrt2", PythiaWeight_fsr_muRoneoversqrt2, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("PythiaWeight_fsr_muR0p5", PythiaWeight_fsr_muR0p5, failedTreeLevel >= minimalFailedTree);
-    myTree->Book("PythiaWeight_fsr_muR0p25", PythiaWeight_fsr_muR0p25, failedTreeLevel >= minimalFailedTree);
+    // //ATbbf
+    // if (verbose) cout<<"book GENbbf"<<endl;
+    // //Event variables
+    // // myTree->Book("GENfinalState",GENfinalState,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("passedFiducialSelection_bbf",passedFiducialSelection_bbf,failedTreeLevel >= minimalFailedTree);
+    // // lepton variables
+    // myTree->Book("GENlep_pt",GENlep_pt,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENlep_eta",GENlep_eta,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENlep_phi",GENlep_phi,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENlep_mass",GENlep_mass,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENlep_id",GENlep_id,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENlep_status",GENlep_status,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENlep_MomId",GENlep_MomId,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENlep_MomMomId",GENlep_MomMomId,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENlep_Hindex",GENlep_Hindex,failedTreeLevel >= minimalFailedTree);
+    // // myTree->Book("GENlep_isoCH",GENlep_isoCH,failedTreeLevel >= minimalFailedTree);
+    // // myTree->Book("GENlep_isoNH",GENlep_isoNH,failedTreeLevel >= minimalFailedTree);
+    // // myTree->Book("GENlep_isoPhot",GENlep_isoPhot,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENlep_RelIso",GENlep_RelIso,failedTreeLevel >= minimalFailedTree);
+    // // Higgs candidate variables (calculated using selected gen leptons)
+    // myTree->Book("GENH_pt",GENH_pt,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENH_eta",GENH_eta,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENH_phi",GENH_phi,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENH_mass",GENH_mass,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENmass4l",GENmass4l,failedTreeLevel >= minimalFailedTree);
+    // // myTree->Book("GENmass4mu",GENmass4mu,failedTreeLevel >= minimalFailedTree);
+    // // myTree->Book("GENmass4e",GENmass4e,failedTreeLevel >= minimalFailedTree);
+    // // myTree->Book("GENmass2e2mu",GENmass2e2mu,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENpT4l",GENpT4l,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENeta4l",GENeta4l,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENphi4l",GENphi4l,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENrapidity4l",GENrapidity4l,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENcosTheta1",GENcosTheta1,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENcosTheta2",GENcosTheta2,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENcosThetaStar",GENcosThetaStar,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENPhi",GENPhi,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENPhi1",GENPhi1,failedTreeLevel >= minimalFailedTree);
+    // // myTree->Book("GENMH",GENMH,failedTreeLevel >= minimalFailedTree);
+    //
+    // // Z candidate variables
+    // myTree->Book("GENZ_pt",GENZ_pt,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENZ_eta",GENZ_eta,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENZ_phi",GENZ_phi,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENZ_mass",GENZ_mass,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENZ_DaughtersId",GENZ_DaughtersId,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENZ_MomId",GENZ_MomId,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENmassZ1",GENmassZ1,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENmassZ2",GENmassZ2,failedTreeLevel >= minimalFailedTree);
+    // // myTree->Book("GENpTZ1",GENpTZ1,failedTreeLevel >= minimalFailedTree);
+    // // myTree->Book("GENpTZ2",GENpTZ2,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENdPhiZZ",GENdPhiZZ,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENmassZZ",GENmassZZ,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENpTZZ",GENpTZZ,failedTreeLevel >= minimalFailedTree);
+    // // Jets pt30_eta4p7
+    // myTree->Book("GENjetsPt_pt30_eta4p7",GENjetsPt_pt30_eta4p7,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENjetsEta_pt30_eta4p7",GENjetsEta_pt30_eta4p7,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENjetsPhi_pt30_eta4p7",GENjetsPhi_pt30_eta4p7,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENjetsMass_pt30_eta4p7",GENjetsMass_pt30_eta4p7,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENnjets_pt30_eta4p7",GENnjets_pt30_eta4p7,failedTreeLevel >= minimalFailedTree);
+    // // Jets pt30_eta2p5
+    // myTree->Book("GENjetsPt_pt30_eta2p5",GENjetsPt_pt30_eta2p5,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENjetsEta_pt30_eta2p5",GENjetsEta_pt30_eta2p5,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENjetsPhi_pt30_eta2p5",GENjetsPhi_pt30_eta2p5,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENjetsMass_pt30_eta2p5",GENjetsMass_pt30_eta2p5,failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("GENnjets_pt30_eta2p5",GENnjets_pt30_eta2p5,failedTreeLevel >= minimalFailedTree);
+    //
+    // if (addLHEKinematics){
+    //   myTree->Book("LHEMotherPz", LHEMotherPz, failedTreeLevel >= LHEFailedTree);
+    //   myTree->Book("LHEMotherE", LHEMotherE, failedTreeLevel >= LHEFailedTree);
+    //   myTree->Book("LHEMotherId", LHEMotherId, failedTreeLevel >= LHEFailedTree);
+    //   myTree->Book("LHEDaughterPt", LHEDaughterPt, failedTreeLevel >= LHEFailedTree);
+    //   myTree->Book("LHEDaughterEta", LHEDaughterEta, failedTreeLevel >= LHEFailedTree);
+    //   myTree->Book("LHEDaughterPhi", LHEDaughterPhi, failedTreeLevel >= LHEFailedTree);
+    //   myTree->Book("LHEDaughterMass", LHEDaughterMass, failedTreeLevel >= LHEFailedTree);
+    //   myTree->Book("LHEDaughterId", LHEDaughterId, failedTreeLevel >= LHEFailedTree);
+    //   myTree->Book("LHEAssociatedParticlePt", LHEAssociatedParticlePt, failedTreeLevel >= LHEFailedTree);
+    //   myTree->Book("LHEAssociatedParticleEta", LHEAssociatedParticleEta, failedTreeLevel >= LHEFailedTree);
+    //   myTree->Book("LHEAssociatedParticlePhi", LHEAssociatedParticlePhi, failedTreeLevel >= LHEFailedTree);
+    //   myTree->Book("LHEAssociatedParticleMass", LHEAssociatedParticleMass, failedTreeLevel >= LHEFailedTree);
+    //   myTree->Book("LHEAssociatedParticleId", LHEAssociatedParticleId, failedTreeLevel >= LHEFailedTree);
+    // }
+    //
+    // myTree->Book("LHEPDFScale", LHEPDFScale, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("LHEweight_QCDscale_muR1_muF1", LHEweight_QCDscale_muR1_muF1, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("LHEweight_QCDscale_muR1_muF2", LHEweight_QCDscale_muR1_muF2, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("LHEweight_QCDscale_muR1_muF0p5", LHEweight_QCDscale_muR1_muF0p5, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("LHEweight_QCDscale_muR2_muF1", LHEweight_QCDscale_muR2_muF1, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("LHEweight_QCDscale_muR2_muF2", LHEweight_QCDscale_muR2_muF2, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("LHEweight_QCDscale_muR2_muF0p5", LHEweight_QCDscale_muR2_muF0p5, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("LHEweight_QCDscale_muR0p5_muF1", LHEweight_QCDscale_muR0p5_muF1, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("LHEweight_QCDscale_muR0p5_muF2", LHEweight_QCDscale_muR0p5_muF2, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("LHEweight_QCDscale_muR0p5_muF0p5", LHEweight_QCDscale_muR0p5_muF0p5, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("LHEweight_PDFVariation_Up", LHEweight_PDFVariation_Up, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("LHEweight_PDFVariation_Dn", LHEweight_PDFVariation_Dn, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("LHEweight_AsMZ_Up", LHEweight_AsMZ_Up, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("LHEweight_AsMZ_Dn", LHEweight_AsMZ_Dn, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("PythiaWeight_isr_muR4", PythiaWeight_isr_muR4, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("PythiaWeight_isr_muR2", PythiaWeight_isr_muR2, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("PythiaWeight_isr_muRsqrt2", PythiaWeight_isr_muRsqrt2, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("PythiaWeight_isr_muRoneoversqrt2", PythiaWeight_isr_muRoneoversqrt2, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("PythiaWeight_isr_muR0p5", PythiaWeight_isr_muR0p5, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("PythiaWeight_isr_muR0p25", PythiaWeight_isr_muR0p25, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("PythiaWeight_fsr_muR4", PythiaWeight_fsr_muR4, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("PythiaWeight_fsr_muR2", PythiaWeight_fsr_muR2, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("PythiaWeight_fsr_muRsqrt2", PythiaWeight_fsr_muRsqrt2, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("PythiaWeight_fsr_muRoneoversqrt2", PythiaWeight_fsr_muRoneoversqrt2, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("PythiaWeight_fsr_muR0p5", PythiaWeight_fsr_muR0p5, failedTreeLevel >= minimalFailedTree);
+    // myTree->Book("PythiaWeight_fsr_muR0p25", PythiaWeight_fsr_muR0p25, failedTreeLevel >= minimalFailedTree);
   }
 
   // MELA branches are booked under buildMELA
@@ -3403,7 +3403,7 @@ void HZZ4lNtupleMaker::buildMELABranches(){
   // Resolve original options
   for (unsigned int it=0; it<recome_originalopts.size(); it++){
     MELAOptionParser* me_opt = recome_originalopts.at(it);
-    myTree->BookMELABranches(me_opt, false, false, 0);
+    // myTree->BookMELABranches(me_opt, false, false, 0);
   }
   // Resolve copy options
   for (unsigned int it=0; it<recome_copyopts.size(); it++){
@@ -3418,7 +3418,7 @@ void HZZ4lNtupleMaker::buildMELABranches(){
     }
     if (original_opt==0) continue;
     else me_opt->pickOriginalOptions(original_opt);
-    myTree->BookMELABranches(me_opt, false, false, 0);
+    // myTree->BookMELABranches(me_opt, false, false, 0);
   }
 
   /***********************/
@@ -3436,7 +3436,7 @@ void HZZ4lNtupleMaker::buildMELABranches(){
   // Resolve original options
   for (unsigned int it=0; it<genme_originalopts.size(); it++){
     MELAOptionParser* genme_opt = genme_originalopts.at(it);
-    myTree->BookMELABranches(genme_opt, false, true, 0);
+    // myTree->BookMELABranches(genme_opt, false, true, 0);
   }
   // Resolve copy options
   for (unsigned int it=0; it<genme_copyopts.size(); it++){
@@ -3451,7 +3451,7 @@ void HZZ4lNtupleMaker::buildMELABranches(){
     }
     if (original_opt==0) continue;
     else genme_opt->pickOriginalOptions(original_opt);
-    myTree->BookMELABranches(genme_opt, false, true, 0);
+    // myTree->BookMELABranches(genme_opt, false, true, 0);
   }
 
   /**********************/
@@ -3484,7 +3484,7 @@ void HZZ4lNtupleMaker::buildMELABranches(){
     GMECHelperFunctions::addToMELACluster(lheme_computer, lheme_clusters);
 
     // Create the necessary branches for each computation
-    myTree->BookMELABranches(lheme_opt, true, false, lheme_computer);
+    // myTree->BookMELABranches(lheme_opt, true, false, lheme_computer);
   }
   // Resolve copy options
   for (unsigned int it=0; it<lheme_copyopts.size(); it++){
@@ -3511,7 +3511,7 @@ void HZZ4lNtupleMaker::buildMELABranches(){
     GMECHelperFunctions::addToMELACluster(lheme_computer, lheme_clusters);
 
     // Create the necessary branches for each computation
-    myTree->BookMELABranches(lheme_opt, true, false, lheme_computer);
+    // myTree->BookMELABranches(lheme_opt, true, false, lheme_computer);
   }
   // Loop over the computations to add any contingencies to aliased hypotheses
   for (unsigned int it=0; it<lheme_computers.size(); it++) lheme_computers.at(it)->addContingencies(lheme_aliased_units);
