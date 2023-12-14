@@ -65,7 +65,7 @@ declareDefault("ADDLOOSEELE", False, globals())
 declareDefault("APPLYTRIG", True, globals())
 
 # Set to True to re-activate the now-deprecated PATMuonCleanerBySegments
-UseMuonCleanerBySegments = False 
+UseMuonCleanerBySegments = False
 
 
 # CMSSW version 8X or 9X
@@ -428,14 +428,14 @@ if not APPLYMUCORR :
     process.bareSoftMuons.src = cms.InputTag("slimmedMuons")
 
 
-#--- Derecated muon cleaner; keep this option for future reference. 
+#--- Derecated muon cleaner; keep this option for future reference.
 if UseMuonCleanerBySegments:
     process.cleanedMu = cms.EDProducer("PATMuonCleanerBySegments",
                                        src = cms.InputTag("calibratedMuons"),
                                        preselection = cms.string("track.isNonnull"),
                                        passthrough = cms.string("isGlobalMuon && numberOfMatches >= 2"),
                                        fractionOfSharedSegments = cms.double(0.499))
-    process.muons.replace(process.bareSoftMuons,cms.Sequence(process.cleanedMu+process.bareSoftMuons))    
+    process.muons.replace(process.bareSoftMuons,cms.Sequence(process.cleanedMu+process.bareSoftMuons))
     process.bareSoftMuons.src = "cleanedMu"
     if not APPLYMUCORR:
         process.cleanedMu.src = "slimmedMuons"
@@ -449,7 +449,7 @@ process.selectedSlimmedElectrons = cms.EDFilter("PATElectronSelector",
     cut = cms.string("pt>5 && abs(eta)<2.5")
 )
 
-#--- Photon ID modules seem to be OK also for UL cf: 
+#--- Photon ID modules seem to be OK also for UL cf:
 #--- https://github.com/cms-egamma/EgammaPostRecoTools/blob/master/python/EgammaPostRecoTools.py#L63
 
 if (LEPTON_SETUP == 2016):
@@ -959,8 +959,7 @@ CR_BESTCANDBASE = ("userFloat('d0.Z1Presel') && userFloat('d0.worstEleIso') <" +
                    "&& userFloat('d0.worstMuIso') <" + str(MUISOCUT) ) # To be revised
 
 CR_BESTCANDBASE_AA   = ("userFloat('d0.Z1Presel') && userFloat('d0.worstEleIso') <" + str(ELEISOCUT) +
-                        "&& userFloat('d0.worstMuIso') <" + str(MUISOCUT) + "&&" +
-                        Z2SIP) # base for AA CR: # Z1 with tight leptons passing SIP and ISO, mass cuts; SIP on Z2
+                        "&& userFloat('d0.worstMuIso') <" + str(MUISOCUT)) # base for AA CR: # Z1 with tight leptons passing SIP and ISO, mass cuts; SIP on Z2
 
 
 CR_BESTZLLss = ""
@@ -1117,7 +1116,7 @@ if (SAMPLE_TYPE == 2016):
         applyJec=True,
         vertexes=cms.InputTag("offlineSlimmedPrimaryVertices"),
         algos=cms.VPSet(_chsalgos_106X_UL16)
-    )    
+    )
 elif (SAMPLE_TYPE == 2017):
     process.load("RecoJets.JetProducers.PileupJetID_cfi")
     process.pileupJetIdUpdated = process.pileupJetId.clone(

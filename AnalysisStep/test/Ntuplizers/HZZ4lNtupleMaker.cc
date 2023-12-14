@@ -64,6 +64,9 @@
 #include <JetMETCorrections/Objects/interface/JetCorrectionsRecord.h>
 #include <JetMETCorrections/Modules/interface/JetResolution.h>
 
+#include "SimDataFormats/JetMatching/interface/JetFlavourInfo.h"
+#include "SimDataFormats/JetMatching/interface/JetFlavourInfoMatching.h"
+
 
 #include "ZZAnalysis/AnalysisStep/interface/EwkCorrections.h"
 #include "ZZAnalysis/AnalysisStep/src/kFactors.C"
@@ -91,6 +94,39 @@
 #include <string>
 
 bool verbose = false; //ATbbf
+
+int MotherID(const reco::GenParticle* p){
+    int ID = 0;
+    int nMo = p->numberOfMothers();
+    const reco::Candidate* g= (const reco::Candidate*)p;
+    while (nMo>0) {
+        //cout<<"id: "<<g->pdgId()<<" pt: "<<g->pt()<<" eta: "<<g->eta()<<" status: "<<g->status()<<" motherId: "<<g->mother()->pdgId()<<endl;
+        if(g->pdgId()!=g->mother()->pdgId()) { ID = g->mother()->pdgId(); return ID;  } // from Z W+ W-
+        else {
+            g = (g->mother());
+            nMo = g->numberOfMothers();
+        }
+    }
+    return ID;
+}
+
+int MotherMotherID(const reco::GenParticle* p){
+    int ID = 0;
+    int nMo = p->numberOfMothers();
+    const reco::Candidate* g= (const reco::Candidate*)p;
+    while (nMo>0) {
+        int nMoMo = g->mother()->numberOfMothers();
+        if (nMoMo==0) return 0;
+        if(g->pdgId()!=g->mother()->pdgId() && g->pdgId()!=g->mother()->mother()->pdgId() && g->mother()->pdgId()!=g->mother()->mother()->pdgId()) { ID = g->mother()->mother()->pdgId(); return ID; } // from Z W+ W-
+        else {
+            g = (g->mother());
+            nMo = g->numberOfMothers();
+        }
+    }
+    return ID;
+}
+
+
 
 namespace {
   bool writeJets = true;     // Write jets in the tree. FIXME: make this configurable
@@ -238,11 +274,19 @@ namespace {
 
 
   std::vector<float> LepPt;
+  std::vector<short> LepMatch;
+  std::vector<short> LepMatchMother;
+  std::vector<short> LepMatchMotherMother;
   std::vector<float> LepEta;
   std::vector<float> LepPhi;
   std::vector<float> LepSCEta;
   std::vector<short> LepLepId;
+  std::vector<float> LepIP;
+  std::vector<float> LepIPerror;
   std::vector<float> LepSIP;
+  std::vector<float> LepIPBis;
+  std::vector<float> LepIPerrorBis;
+  std::vector<float> LepSIPBis;
   std::vector<float> Lepdxy;
   std::vector<float> Lepdz;
   std::vector<float> LepTime;
@@ -368,7 +412,7 @@ namespace {
   std::vector<float> PhotonEta ;
   std::vector<float> PhotonPhi ;
   std::vector<float> PhotonEnergyPostCorr ;
-  std::vector<float> PhotonEnergyErrPostCorr ; 
+  std::vector<float> PhotonEnergyErrPostCorr ;
   std::vector<float> PhotonScale_Total_Up ;
   std::vector<float> PhotonScale_Total_Down ;
   std::vector<float> PhotonSigma_Total_Up ;
@@ -693,6 +737,15 @@ private:
   bool apply_K_NLOEW_ZZQQB;
   bool apply_QCD_GGF_UNCERT;
 
+  edm::EDGetTokenT<reco::GenJetCollection> mGenJetsName;
+  edm::EDGetTokenT<reco::JetFlavourInfoMatchingCollection> mJetFlavourInfosToken;
+  edm::EDGetTokenT<reco::JetFlavourInfoMatchingCollection> mJetFlavourInfosTokenPhysicsDef;
+  edm::EDGetTokenT<reco::GenParticleCollection>            mGenParticles;
+
+  edm::Handle<reco::GenJetCollection> genJetsBis;
+  edm::Handle<reco::JetFlavourInfoMatchingCollection> theJetFlavourInfos;
+  edm::Handle<reco::JetFlavourInfoMatchingCollection> theJetFlavourInfosPhys;
+
   edm::EDGetTokenT<edm::View<reco::Candidate> > genParticleToken;
   edm::Handle<edm::View<reco::Candidate> > genParticles;
   edm::EDGetTokenT<reco::GenParticleCollection> genParticleToken_bbf;//ATbbf
@@ -700,6 +753,7 @@ private:
   edm::Handle<edm::View<pat::PackedGenParticle> > packedgenParticles; //ATbbf
   edm::Handle<edm::View<reco::GenJet> > genJets; //ATjets
   edm::EDGetTokenT<edm::View<reco::GenJet> > genJetsToken; //ATjets
+  edm::EDGetTokenT<edm::Association<std::vector<reco::GenJet> > > slimmedGenJetAssociationToken_;
   edm::EDGetTokenT<edm::View<pat::PackedGenParticle> > packedgenParticlesToken; //ATbbf
   edm::EDGetTokenT<GenEventInfoProduct> genInfoToken;
   edm::EDGetTokenT<edm::View<pat::CompositeCandidate> > candToken;
@@ -806,6 +860,11 @@ HZZ4lNtupleMaker::HZZ4lNtupleMaker(const edm::ParameterSet& pset) :
   mela(sqrts, Hmass, TVar::ERROR),
   recoMElist(pset.getParameter<std::vector<std::string>>("recoProbabilities")),
 
+  // mGenJetsName(mayConsume<reco::GenJetCollection>(                                 pset.getUntrackedParameter<edm::InputTag>("genjets",edm::InputTag("")))),
+  // mGenParticles(consumes<reco::GenParticleCollection>(                             pset.getUntrackedParameter<edm::InputTag>("GenParticles",edm::InputTag("")))),
+  // mJetFlavourInfosToken(consumes<reco::JetFlavourInfoMatchingCollection>(          pset.getUntrackedParameter<edm::InputTag>("jetFlavInfos",edm::InputTag("")))),
+  // mJetFlavourInfosTokenPhysicsDef(consumes<reco::JetFlavourInfoMatchingCollection>(pset.getUntrackedParameter<edm::InputTag>("jetFlavInfosPD",edm::InputTag("")))),
+
   lheMElist(pset.getParameter<std::vector<std::string>>("lheProbabilities")),
   addLHEKinematics(pset.getParameter<bool>("AddLHEKinematics")),
   lheHandler(nullptr),
@@ -822,6 +881,7 @@ HZZ4lNtupleMaker::HZZ4lNtupleMaker(const edm::ParameterSet& pset) :
 
   printedLHEweightwarning(false),
   firstRun(true)
+
 {
   //cout<< "Beginning Constructor\n\n\n" <<endl;
   consumesMany<std::vector< PileupSummaryInfo > >();
@@ -833,6 +893,12 @@ HZZ4lNtupleMaker::HZZ4lNtupleMaker(const edm::ParameterSet& pset) :
   GENCandidatesToken = consumes<edm::View<pat::CompositeCandidate> >(edm::InputTag("GENLevel"));
   consumesMany<LHEEventProduct>();
   candToken = consumes<edm::View<pat::CompositeCandidate> >(edm::InputTag(theCandLabel));
+
+  mGenJetsName = consumes<reco::GenJetCollection> (edm::InputTag("slimmedGenJets"));
+  mGenParticles = consumes<reco::GenParticleCollection> (edm::InputTag("GenParticles"));
+  mJetFlavourInfosToken = consumes<reco::JetFlavourInfoMatchingCollection>(edm::InputTag("jetFlavs"));
+  mJetFlavourInfosTokenPhysicsDef = consumes<reco::JetFlavourInfoMatchingCollection>(edm::InputTag("jetFlavsPD"));
+
 
   is_loose_ele_selection = false;
   if(pset.exists("is_loose_ele_selection")) {
@@ -1096,6 +1162,10 @@ void HZZ4lNtupleMaker::analyze(const edm::Event& event, const edm::EventSetup& e
     event.getByToken(genParticleToken_bbf, genParticles_bbf); //ATbbf
     event.getByToken(GENCandidatesToken, GENCandidates);//ATMELA
 
+    event.getByToken(mGenJetsName,genJetsBis);
+    event.getByToken(mJetFlavourInfosToken, theJetFlavourInfos);
+    event.getByToken(mJetFlavourInfosTokenPhysicsDef, theJetFlavourInfosPhys);
+
     edm::Handle<HTXS::HiggsClassification> htxs;
     event.getByToken(htxsToken,htxs);
 
@@ -1214,7 +1284,7 @@ void HZZ4lNtupleMaker::analyze(const edm::Event& event, const edm::EventSetup& e
         throw e;
       }
       auto nominal = genweights[0];
-      
+
       // see twiki here with definitions and order : https://twiki.cern.ch/twiki/bin/view/CMS/HowToPDF#Parton_shower_weights
       PythiaWeight_isr_muRoneoversqrt2 = genweights[24] / nominal;
       PythiaWeight_fsr_muRoneoversqrt2 = genweights[2] / nominal;
@@ -2234,11 +2304,19 @@ void HZZ4lNtupleMaker::FillCandidate(const pat::CompositeCandidate& cand, bool e
 
   //Reinitialize the per-candidate vectors (necessary because in CRs we can store more than 1 candidate per event)
   LepPt.clear();
+  LepMatch.clear();
+  LepMatchMother.clear();
+  LepMatchMotherMother.clear();
   LepEta.clear();
   LepPhi.clear();
   LepSCEta.clear();
   LepLepId.clear();
+  LepIP.clear();
+  LepIPerror.clear();
   LepSIP.clear();
+  LepIPBis.clear();
+  LepIPerrorBis.clear();
+  LepSIPBis.clear();
   Lepdxy.clear();
   Lepdz.clear();
   LepTime.clear();
@@ -2407,6 +2485,8 @@ void HZZ4lNtupleMaker::FillCandidate(const pat::CompositeCandidate& cand, bool e
 
   // Retrieve the userFloat of the leptons in vectors ordered in the same way.
   vector<float> SIP(4);
+  vector<float> IP(4);
+  vector<float> IPerror(4);
   vector<float> combRelIsoPF(4);
   passIsoPreFSR = true;
   for (unsigned int i=0; i<leptons.size(); ++i){
@@ -2418,6 +2498,8 @@ void HZZ4lNtupleMaker::FillCandidate(const pat::CompositeCandidate& cand, bool e
     short lepFlav = std::abs(leptons[i]->pdgId());
 
     SIP[i]             = userdatahelpers::getUserFloat(leptons[i],"SIP");
+    IP[i]             = userdatahelpers::getUserFloat(leptons[i],"IP");
+    IPerror[i]             = userdatahelpers::getUserFloat(leptons[i],"IPError");
     passIsoPreFSR      = passIsoPreFSR&&(userdatahelpers::getUserFloat(leptons[i],"combRelIsoPF")<LeptonIsoHelper::isoCut(leptons[i]));
 
     //in the Legacy approach,  FSR-corrected iso is attached to the Z, not to the lepton!
@@ -2429,6 +2511,89 @@ void HZZ4lNtupleMaker::FillCandidate(const pat::CompositeCandidate& cand, bool e
       combRelIsoPF[i]    = userdatahelpers::getUserFloat(leptons[i],"combRelIsoPF");
     }
 
+    //GenMatching
+    //Loop over jets
+    auto igen = genJetsBis->begin();
+    auto j = theJetFlavourInfos->begin();
+    auto k = theJetFlavourInfosPhys->begin();
+    // bool matched = false;
+
+    std::vector<short> lepmatch;
+    std::vector<float> distance;
+    std::vector<short> lepmother;
+    std::vector<short> lepmothermother;
+    std::vector<float> jetIndex;
+
+    // cout << "----------------------------" << endl;
+    for (;igen!=genJetsBis->end() and j!=theJetFlavourInfos->end() and k!=theJetFlavourInfosPhys->end();++igen,++j,++k) {
+
+      if (ROOT::Math::VectorUtil::DeltaR(leptons[i]->momentum(), igen->momentum())<0.1){
+        auto aInfo = j->second;
+        auto bInfo = k->second;
+        // cout << "matched jet: " << leptons[i]->pdgId() << " " <<  aInfo.getHadronFlavour() << " " <<  aInfo.getPartonFlavour() << " " <<  bInfo.getPartonFlavour() << endl;
+        // cout << igen->numberOfDaughters() << endl;
+        // for(unsigned int j = 0; j<igen->numberOfDaughters(); j++){
+        //   cout << igen->daughter(j)->pdgId() << endl;
+        //   cout << igen->daughter(j)->energy() << endl;
+        // }
+        // cout << "energy: " << leptons[i]->energy() << " " <<  igen->energy() << endl;
+        // cout << "eta: " << leptons[i]->eta() << " " <<  igen->eta() << endl;
+        // cout << "phi: " << leptons[i]->phi() << " " <<  igen->phi() << endl;
+        // cout << "dR: " << ROOT::Math::VectorUtil::DeltaR(leptons[i]->momentum(), igen->momentum()) << endl;
+        // cout << endl;
+        jetIndex.push_back(i);
+        lepmatch.push_back(aInfo.getHadronFlavour());
+        lepmother.push_back(-100);
+        lepmothermother.push_back(-100);
+        distance.push_back(ROOT::Math::VectorUtil::DeltaR(leptons[i]->momentum(), igen->momentum()));
+      }
+    }
+    reco::GenParticleCollection::const_iterator genPart;
+    for(genPart = genParticles_bbf->begin(); genPart != genParticles_bbf->end(); genPart++) {
+      if (genPart->status()!=1) continue;
+      if (ROOT::Math::VectorUtil::DeltaR(leptons[i]->momentum(), genPart->momentum())<0.1){
+        // cout << "matched particle: " << leptons[i]->pdgId() << " " <<  genPart->pdgId() << " from " << MotherID((const reco::GenParticle*)&*genPart) << endl;
+        // cout << "energy: " << leptons[i]->energy() << " " <<  genPart->energy() << endl;
+        // cout << "eta: " << leptons[i]->eta() << " " <<  genPart->eta() << endl;
+        // cout << "phi: " << leptons[i]->phi() << " " <<  genPart->phi() << endl;
+        // cout << "dR: " << ROOT::Math::VectorUtil::DeltaR(leptons[i]->momentum(), genPart->momentum()) << endl;
+        // cout << endl;
+        lepmatch.push_back(genPart->pdgId());
+        lepmother.push_back(MotherID((const reco::GenParticle*)&*genPart));
+        lepmothermother.push_back(MotherMotherID((const reco::GenParticle*)&*genPart));
+        // lepmother.push_back(leptons[i]->pdgId());
+        distance.push_back(ROOT::Math::VectorUtil::DeltaR(leptons[i]->momentum(), genPart->momentum()));
+      }
+    }
+    // cout << "----------------------------" << endl;
+    // cout << endl;
+    // cout << "finish matching" << endl;
+    // cout << endl;
+
+    if (!distance.empty()){
+      auto maxElement = std::min_element(distance.begin(), distance.end());
+      int index = std::distance(distance.begin(), maxElement);
+
+      // cout << "------------------------------------------" << endl;
+      // for(unsigned int i = 0; i < distance.size(); i++){
+      //   cout << distance[i] << " " << lepmatch[i] << " " << lepmother[i] << endl;
+      // }
+      // cout << "------------------------------------------" << endl;
+
+      LepMatch.push_back(lepmatch[index]);
+      LepMatchMother.push_back(lepmother[index]);
+      LepMatchMotherMother.push_back(lepmothermother[index]);
+    }else{
+      LepMatch.push_back(-100);
+      LepMatchMother.push_back(-100);
+      LepMatchMotherMother.push_back(-100);
+    }
+
+    lepmatch.clear();
+    distance.clear();
+    lepmother.clear();
+    lepmothermother.clear();
+
     //Fill the info on the lepton candidates
     LepPt .push_back( leptons[i]->pt() );
     LepEta.push_back( leptons[i]->eta() );
@@ -2437,7 +2602,12 @@ void HZZ4lNtupleMaker::FillCandidate(const pat::CompositeCandidate& cand, bool e
     int id =  leptons[i]->pdgId();
     if(id == 22 && (i == 1 || i == 3)) id=-22; //FIXME this assumes a standard ordering of leptons.
     LepLepId.push_back( id );
+    LepIP  .push_back( IP[i] );
+    LepIPerror  .push_back( IPerror[i] );
     LepSIP  .push_back( SIP[i] );
+    LepIPBis  .push_back( userdatahelpers::getUserFloat(leptons[i],"IP") );
+    LepIPerrorBis  .push_back( userdatahelpers::getUserFloat(leptons[i],"IPError") );
+    LepSIPBis  .push_back( userdatahelpers::getUserFloat(leptons[i],"SIP") );
     Lepdxy  .push_back( userdatahelpers::getUserFloat(leptons[i],"dxy") );
     Lepdz   .push_back( userdatahelpers::getUserFloat(leptons[i],"dz") );
     LepTime .push_back( lepFlav==13 ? userdatahelpers::getUserFloat(leptons[i],"time") : 0. );
@@ -2859,7 +3029,7 @@ void HZZ4lNtupleMaker::FillLepGenInfo(Short_t Lep1Id, Short_t Lep2Id, Short_t Le
   if (addGenAngles) {
     TUtil::computeAngles(Gencosthetastar, GenhelcosthetaZ1, GenhelcosthetaZ2, Genhelphi, GenphistarZ1, zzanalysis::tlv(Lep1), Lep1Id, zzanalysis::tlv(Lep2), Lep2Id, zzanalysis::tlv(Lep3), Lep3Id, zzanalysis::tlv(Lep4), Lep4Id);
   }
-  
+
   return;
 }
 
@@ -3054,11 +3224,19 @@ void HZZ4lNtupleMaker::BookAllBranches(){
   }
 
   myTree->Book("LepPt",LepPt, false);
+  myTree->Book("LepMatch",LepMatch, false);
+  myTree->Book("LepMatchMother",LepMatchMother, false);
+  myTree->Book("LepMatchMotherMother",LepMatchMotherMother, false);
   myTree->Book("LepEta",LepEta, false);
   myTree->Book("LepPhi",LepPhi, false);
   myTree->Book("LepSCEta",LepSCEta, false);
   myTree->Book("LepLepId",LepLepId, false);
+  myTree->Book("LepIP",LepIP, false);
+  myTree->Book("LepIPerror",LepIPerror, false);
   myTree->Book("LepSIP",LepSIP, false);
+  myTree->Book("LepIPBis",LepIPBis, false);
+  myTree->Book("LepIPerrorBis",LepIPerrorBis, false);
+  myTree->Book("LepSIPBis",LepSIPBis, false);
   myTree->Book("Lepdxy",Lepdxy, false);
   myTree->Book("Lepdz",Lepdz, false);
   myTree->Book("LepTime",LepTime, false);

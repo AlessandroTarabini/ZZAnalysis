@@ -140,6 +140,21 @@ process.PlotsZZ    = cms.EDAnalyzer("ZZ4lAnalyzer",
 ### Analyzer for Trees
 ### ----------------------------------------------------------------------
 
+genParticleCollection = 'prunedGenParticles'
+genJetCollection = 'slimmedGenJets'
+
+process.load('PhysicsTools.JetMCAlgos.HadronAndPartonSelector_cfi')
+process.selectedHadronsAndPartons.particles = genParticleCollection
+process.physDefHadronsAndPartons = process.selectedHadronsAndPartons.clone( fullChainPhysPartons = cms.bool(False) )
+
+process.load('PhysicsTools.JetMCAlgos.AK4PFJetsMCFlavourInfos_cfi')
+# from PhysicsTools.JetMCAlgos.AK4PFJetsMCFlavourInfos_cfi import ak4JetFlavourInfos
+process.jetFlavs = process.ak4JetFlavourInfos.clone( jets = genJetCollection,
+                                                     partons = cms.InputTag("selectedHadronsAndPartons","algorithmicPartons") )
+process.jetFlavsPD = process.jetFlavs.clone( partons = cms.InputTag("physDefHadronsAndPartons","physicsPartons") )
+
+
+
 TreeSetup = cms.EDAnalyzer("HZZ4lNtupleMaker",
                            channel = cms.untracked.string('aChannel'),
                            CandCollection = cms.untracked.string('ZZCand'),
@@ -159,6 +174,9 @@ TreeSetup = cms.EDAnalyzer("HZZ4lNtupleMaker",
 									GenXSEC = cms.double(GENXSEC),
 									GenBR = cms.double(GENBR),
                            dataTag=cms.string(DATA_TAG), #added for recognizing UL16 pre/post VFP
+
+                           # jetFlavInfos    = cms.untracked.InputTag("jetFlavs"),
+                           # jetFlavInfosPD  = cms.untracked.InputTag("jetFlavsPD"),
 
                            # MELA parameters
                            superMelaMass = cms.double(SUPERMELA_MASS),
@@ -304,10 +322,10 @@ if (PROCESS_CR or not IsMC):
     if (not IsMC):
         process.dump = cms.Path(process.ZZFiltered + process.ZZSelection + process.dumpUserData)
         process.dumpCR = cms.Path(process.CRFiltered + process.CRSelection + process.dumpUserData)
-    process.trees = cms.EndPath( process.ZZTree + process.CRZLLTree + process.CRZLTree)
+    process.trees = cms.EndPath( process.selectedHadronsAndPartons + process.jetFlavs + process.physDefHadronsAndPartons + process.jetFlavsPD + process.ZZTree + process.CRZLLTree + process.CRZLTree)
 else:
 #    process.CRPath = cms.Path(process.CRZl) #still needed by the plotter
-    process.trees = cms.EndPath(process.ZZTree)
+    process.trees = cms.EndPath(process.selectedHadronsAndPartons + process.jetFlavs + process.physDefHadronsAndPartons + process.jetFlavsPD + process.ZZTree)
 
 process.plots = cms.EndPath(process.PlotsZZ)
 

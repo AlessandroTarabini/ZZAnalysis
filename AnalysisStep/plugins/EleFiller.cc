@@ -106,7 +106,7 @@ EleFiller::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
     float combRelIsoPF = LeptonIsoHelper::combRelIsoPF(sampleType, setup, rho, l);
 
       //--- SIP, dxy, dz. Note: The same values can be obtained in string selectors as:
-      // SIP: "abs(dB('PV3D')/edB('PV3D'))"  
+      // SIP: "abs(dB('PV3D')/edB('PV3D'))"
       // dxy: "abs(dB('PV2D'))"
       // dz: "abs(dB('PVDZ'))"
     float IP      = fabs(l.dB(pat::Electron::PV3D));
@@ -115,7 +115,7 @@ EleFiller::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
     float dxy = std::abs(l.dB(pat::Electron::PV2D));
     float dz  = std::abs(l.dB(pat::Electron::PVDZ));;
 
-     // Non-standard dxy, dz computed using a selected PV (obsolete recipe, kept here temporaryly for reference). 
+     // Non-standard dxy, dz computed using a selected PV (obsolete recipe, kept here temporaryly for reference).
 //     float custom_dxy = 999.;
 //     float custom_dz  = 999.;
 //     const Vertex* vertex = 0;
@@ -217,6 +217,8 @@ EleFiller::produce(edm::Event& iEvent, const edm::EventSetup& iSetup)
     l.addUserFloat("combRelIsoPF",combRelIsoPF);
     l.addUserFloat("SCeta",SCeta);
     l.addUserFloat("rho",rho);
+    l.addUserFloat("IP",IP);
+    l.addUserFloat("IPError",IPError);
     l.addUserFloat("SIP",SIP);
     l.addUserFloat("dxy",dxy);
     l.addUserFloat("dz",dz);
