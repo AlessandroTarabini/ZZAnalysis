@@ -14,23 +14,36 @@ class RecoProbFiller(Module):
     MELASettings = dictionary with settings for the probabilities to be computed
     """
     
-    def __init__(self, MELA, NANOVERSION, MELASettings = None):
+    def __init__(self, MELA, NANOVERSION, MELASettings = None, processCR=False):
         self.MELA = MELA
         self.NANOVERSION = NANOVERSION
         self.sortedSettings = []
         self.MELASettings = MELASettings
-        self.ProbHelper = MELAProbHelper(self.MELA, self.MELASettings, "Reco")
-        print("***RecoProbFiller: set for: ", self.ProbHelper.names, flush=True)
+        self.processCR = processCR
+        self.ProbHelperZZ = MELAProbHelper(self.MELA, self.MELASettings, "Reco", recoCollName="ZZCand", recoLenVar="nZZCand")
+        self.ProbHelperZLL = None
+        if self.processCR:
+            self.ProbHelperZLL = MELAProbHelper(self.MELA, self.MELASettings, "Reco", recoCollName="ZLLCand", recoLenVar="nZLLCand")
+        print("***RecoProbFiller: set for: ", self.ProbHelperZZ.names, flush=True)
 
 
     def beginFile(self, inputFile, outputFile, inputTree, wrappedOutputTree):
         self.out = wrappedOutputTree
         if self.MELASettings != None: 
-            self.ProbHelper.bookProbs(wrappedOutputTree)
+            self.ProbHelperZZ.bookProbs(wrappedOutputTree)
+            if self.ProbHelperZLL != None:
+                self.ProbHelperZLL.bookProbs(wrappedOutputTree)
         
 
     def analyze(self, event):
-        cands = Collection(event, 'ZZCand')
+        self.fillRecoProbs(event, "ZZCand", self.ProbHelperZZ)
+        if self.ProbHelperZLL != None:
+            self.fillRecoProbs(event, "ZLLCand", self.ProbHelperZLL)
+
+        return True
+
+    def fillRecoProbs(self, event, collName, probHelper):
+        cands = Collection(event, collName)
         leps = Collection(event, 'Lepton')
         fsrPhotons = Collection(event, "FsrPhoton")
         jets = Collection(event, 'Jet')
@@ -60,13 +73,13 @@ class RecoProbFiller(Module):
             daughters.add_particle(Mela.SimpleParticle_t(theCandLeps[2].pdgId, dressedLepsp4[2].Px(), dressedLepsp4[2].Py(), dressedLepsp4[2].Pz(), dressedLepsp4[2].E()))
             daughters.add_particle(Mela.SimpleParticle_t(theCandLeps[3].pdgId, dressedLepsp4[3].Px(), dressedLepsp4[3].Py(), dressedLepsp4[3].Pz(), dressedLepsp4[3].E()))
 
-            extralep_idx = [i for i in (event.ZZCand_extraLep1Idx[iCand], event.ZZCand_extraLep2Idx[iCand]) if i >= 0]
+            extralep_idx = [i for i in (getattr(event, collName+"_extraLep1Idx")[iCand], getattr(event, collName+"_extraLep2Idx")[iCand]) if i >= 0]
             for idx in extralep_idx:
                 lep = leps[idx]
                 p4 = lep.p4()
                 associated.add_particle(Mela.SimpleParticle_t(lep.pdgId, p4.Px(), p4.Py(), p4.Pz(), p4.E()))
 
-        self.ProbHelper.fillProbs(candsDaughters, candsAssociated, None)
+        probHelper.fillProbs(candsDaughters, candsAssociated, None)
 
         return True
     

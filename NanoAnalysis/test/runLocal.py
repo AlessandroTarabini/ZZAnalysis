@@ -14,11 +14,11 @@ if not validateCheckout() :
 
 #SampleToRun = "MCsync_2018UL" # v15 2018UL nano
 #SampleToRun = "Data2022"
-SampleToRun = "MC2022EE"
+# SampleToRun = "MC2022EE"
 #SampleToRun = "MC2023postBPix"
 #SampleToRun = "Data2024"
-#SampleToRun = "MC2024"
-#SampleToRun = "MELA_Test"
+# SampleToRun = "MC2024"
+SampleToRun = "MELA_Test"
 #SampleToRun = "MELA_VBS_ZZjj-EWK"
 #SampleToRun = "forNanoDoc" # To prepare variable lists with inspectNanoFile.py
 
@@ -220,14 +220,15 @@ elif SampleToRun == "MELA_Test" :
     setConf("ADD_ALLEVENTS", True)
     setConf("APPLY_QCD_GGF_UNCERT", True) # for ggH
     setConf("NANOVERSION", 15)
+    setConf("PROCESS_CR", True)
     setConf("store","root://cms-xrd-global.cern.ch/")
     # Add probabilities 
     import prod.pyFragments.EFT_RecoProbs
     # import prod.pyFragments.contextTest
     import prod.pyFragments.DefaultProbs
-    import prod.pyFragments.LHE_Probs_ggH0PM_M125
+    import prod.pyFragments.STXS_probs
     setConf("fileNames", [
-        "/store/mc/RunIII2024Summer24NanoAODv15/GluGluH-Hto2Zto4L_Par-M-125_TuneCP5_13p6TeV_powheg-jhugen-pythia8/NANOAODSIM/150X_mcRun3_2024_realistic_v2-v2/110000/a9e03ff9-2146-4aff-bd26-69abcb98359f.root" # 10000 evts
+        "/store/mc/RunIII2024Summer24NanoAODv15/GluGluH-Hto2Zto4L_Par-M-125_TuneCP5_13p6TeV_powheg-jhugen-pythia8/NANOAODSIM/150X_mcRun3_2024_realistic_v2-v2/110000/0aa02581-9d54-4e2d-b038-ae9e6b661bb9.root" # 10000 evts
     ])
     
 
@@ -266,7 +267,7 @@ def customizeProcessForLocal(p) :
     p.json = json # replace JSON
         
     ### Run only on the first N events in the file
-    #p.maxEntries = 10000
+    p.maxEntries = 10000
 
     ### Select specific events to debug
     #p.cut = "run==316239  && luminosityBlock==226 && event==284613817"

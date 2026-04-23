@@ -199,7 +199,7 @@ reco_sequence = [lepFiller(cuts, LEPTON_SETUP, MUON_ID_BYMVA), # FSR and FSR-cor
 
 if melaSettings != None:
     from ZZAnalysis.NanoAnalysis.RecoProbFiller import *
-    reco_sequence.append(RecoProbFiller(mela, NANOVERSION, melaSettings))  #Reco level probabilities. 
+    reco_sequence.append(RecoProbFiller(mela, NANOVERSION, melaSettings, processCR=PROCESS_CR))  #Reco level probabilities.
 
 # Add muon scale corrections
 if APPLYMUCORR :

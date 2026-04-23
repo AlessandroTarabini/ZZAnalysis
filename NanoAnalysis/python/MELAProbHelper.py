@@ -13,11 +13,13 @@ class MELAProbHelper():
     A probability with context defined as "Any" will be computed at lhe and reco level.  
     """
 
-    def __init__(self, MELA, MELASettings, ModuleContext):
+    def __init__(self, MELA, MELASettings, ModuleContext, recoCollName="ZZCand", recoLenVar="nZZCand"):
         self.MELA = MELA
         self.sortedSettings = []
         self.ModuleContext = ModuleContext
         self.names = []
+        self.recoCollName = recoCollName
+        self.recoLenVar = recoLenVar
         
         if ModuleContext not in ["LHE", "Reco"] :
             raise valueError("MELAProbHelper: invalid ModuleContext", ModuleContext)
@@ -66,7 +68,7 @@ class MELAProbHelper():
                 if self.ModuleContext == "LHE": 
                     fprob["branchname"] = f"LHEMela_P_{prob['Name']}"
                 else: 
-                    fprob["branchname"] = f"ZZCand_P_{prob['Name']}"
+                    fprob["branchname"] = f"{self.recoCollName}_P_{prob['Name']}"
                 
                 ### Sort the MELASettings dictionary so that all probabilities with divideP are last 
                 if (fprob["dividep"]==None):
@@ -95,7 +97,7 @@ class MELAProbHelper():
                 if self.ModuleContext == "LHE":
                     lenVar_ = None
                 else:
-                    lenVar_ = "nZZCand"
+                    lenVar_ = self.recoLenVar
                     
                 self.out.branch(prob["branchname"], "F", lenVar=lenVar_, limitedPrecision=16, title=f"User-defined {self.ModuleContext}-level probability")
                 if prob.get("ispm4l", False):
